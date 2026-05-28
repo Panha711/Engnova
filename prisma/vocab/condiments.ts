@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const condimentsVocab: VocabEntry[] = [
+  { word: "sugar", meaning: "a sweet substance used in food and drinks", meaningKh: "ស្ករ", example: "Add one spoon of sugar to tea.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "salt", meaning: "a white mineral used to flavor food", meaningKh: "អំបិល", example: "A pinch of salt improves flavor.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pepper", meaning: "a spice with a hot taste, ground from peppercorns", meaningKh: "ម្រេច", example: "Grind fresh pepper on the steak.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cooking oil", meaning: "oil used for frying and cooking (also called oil)", meaningKh: "ប្រេង", example: "Heat cooking oil in the pan.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "vinegar", meaning: "a sour liquid used in dressings and pickling", meaningKh: "ទឹកជូរ", example: "Mix vinegar with olive oil.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ginger", meaning: "a spicy root used in cooking", meaningKh: "ខ្ញី", example: "Grate ginger into the stir-fry.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "jam", meaning: "a sweet spread made from cooked fruit", meaningKh: "យ៉ាម", example: "Strawberry jam on toast.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "marmalade", meaning: "a jam made from citrus fruit peel", meaningKh: "ម៉ាម៉ាឡាដ", example: "Orange marmalade is tangy.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "honey", meaning: "a sweet sticky liquid made by bees", meaningKh: "ទឹកឃ្មុំ", example: "Drizzle honey on yogurt.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mayonnaise", meaning: "a thick creamy sauce used in sandwiches", meaningKh: "ម៉ាយូណេស", example: "Spread mayonnaise on the bread.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ketchup", meaning: "a thick red tomato sauce", meaningKh: "ទឹកប៉េងប៉ោះ", example: "Ketchup goes with fries.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mustard", meaning: "a yellow or brown spicy sauce", meaningKh: "ម៉ាស្តាដ", example: "Mustard adds heat to hot dogs.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chutney", meaning: "a spicy or sweet sauce from South Asia", meaningKh: "ឆឹតនី", example: "Mango chutney pairs with curry.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "peanut butter", meaning: "a spread made from ground peanuts", meaningKh: "ប៊ឺដូង", example: "Peanut butter and jelly sandwich.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chili flakes", meaning: "dried crushed red peppers (UK: chilli flakes)", meaningKh: "ម្ទេសក្រៀម", example: "Sprinkle chili flakes on pizza.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "spices", meaning: "substances from plants used to flavor food", meaningKh: "គ្រឿងទេស", example: "Indian cooking uses many spices.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "herbs", meaning: "plants used for flavoring food", meaningKh: "គ្រឿងទេសបៃតង", example: "Fresh herbs brighten the dish.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "parsley", meaning: "a curly green herb used as garnish", meaningKh: "ផាស្លេ", example: "Chop parsley to garnish the soup.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "basil", meaning: "a sweet green herb used in Italian food", meaningKh: "ជីរបាស៊ីល", example: "Basil leaves go in pesto.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mint", meaning: "a fresh green herb with a cool taste", meaningKh: "ជីរបៃ", example: "Mint tea is refreshing.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "soy sauce", meaning: "a dark salty sauce made from soybeans", meaningKh: "ទឹកស៊ីអ៊ីវ", example: "Add soy sauce to the noodles.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cilantro", meaning: "fresh coriander leaves used in cooking (UK: coriander)", meaningKh: "ជីរវ៉ាន់ស៊ុយ", example: "Cilantro tops the tacos.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chives", meaning: "long thin green herbs with a mild onion taste", meaningKh: "ខ្ទឹមសណ្តែក", example: "Snip chives over baked potatoes.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "dill", meaning: "a feathery herb with a fresh flavor", meaningKh: "ឌីល", example: "Dill goes well with fish.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "lemongrass", meaning: "a tropical grass with lemon flavor used in cooking", meaningKh: "ស្លឹកគ្រៃ", example: "Lemongrass flavors Thai soup.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+];

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const employmentVocab: VocabEntry[] = [
+  { word: "company", meaning: "an organization that does business", meaningKh: "ក្រុមហ៊ុន", example: "She works for a tech company.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "headquarters", meaning: "the main office of a company", meaningKh: "ការិយាល័យកណ្តាល", example: "The headquarters is in London.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "staff", meaning: "all the people who work for an organization", meaningKh: "បុគ្គលិក", example: "The staff meeting is at nine.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "employer", meaning: "a person or company that pays people to work", meaningKh: "និយោជក", example: "My employer offers health insurance.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "employee", meaning: "a person who works for an employer", meaningKh: "និយោជិត", example: "Every employee gets training.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "manager", meaning: "a person who is in charge of a team or department", meaningKh: "អ្នកគ្រប់គ្រង", example: "Talk to your manager about leave.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "permanent", meaning: "a job with no planned end date", meaningKh: "ការងារអចិន្ត្រៃយ៍", example: "She has a permanent position.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "temporary", meaning: "a job for a limited period of time", meaningKh: "ការងារបណ្តោះអាសន្ន", example: "He took a temporary job.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "co-worker", meaning: "a person you work with (also called a colleague)", meaningKh: "សហការី", example: "My co-worker helped me.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "assistant", meaning: "a person who helps someone with their work", meaningKh: "អ្នកជំនួយ", example: "She works as an office assistant.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "intern", meaning: "a student or graduate working to gain experience", meaningKh: "បណ្ឌិត្យបុគ្គលិក", example: "He is a summer intern.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "apprentice", meaning: "a person learning a trade from a skilled worker", meaningKh: "កូនក្រមុំ", example: "The apprentice learned plumbing.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "annual leave", meaning: "paid time off work each year (US: annual vacation)", meaningKh: "ច្បាប់ឈប់សម្រាកប្រចាំឆ្នាំ", example: "She used two weeks of annual leave.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "nine-to-five job", meaning: "a job with regular daytime hours", meaningKh: "ការងារម៉ោងការិយាល័យ", example: "He prefers a nine-to-five job.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "client", meaning: "a person or company that buys services", meaningKh: "អតិថិជន", example: "We met with a new client.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "work part-time", meaning: "to work fewer hours than a full-time job", meaningKh: "ធ្វើការក្រោមម៉ោង", example: "She works part-time while studying.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "work full-time", meaning: "to work the standard number of hours per week", meaningKh: "ធ្វើការពេញម៉ោង", example: "He works full-time at the bank.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "work from home", meaning: "to do your job at home instead of the office", meaningKh: "ធ្វើការពីផ្ទះ", example: "Many people work from home on Fridays.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "work shifts", meaning: "to work at different times on a rotating schedule", meaningKh: "ធ្វើការវេន", example: "Nurses often work shifts.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "have a day off", meaning: "to not work on a particular day", meaningKh: "ឈប់សម្រាកមួយថ្ងៃ", example: "I have a day off tomorrow.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "retire", meaning: "to stop working because of age", meaningKh: "ចូលនិវត្តន៍", example: "He plans to retire at sixty-five.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "get fired", meaning: "to lose your job because your employer dismisses you", meaningKh: "ត្រូវបណ្តេញ", example: "He got fired for being late.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "earn", meaning: "to receive money for work", meaningKh: "រកបាន", example: "She earns a good salary.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "call in sick", meaning: "to phone your employer to say you cannot work because of illness", meaningKh: "ទូរស័ព្ទឈប់ឈឺ", example: "He called in sick on Monday.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "go on maternity leave", meaning: "to take time off work when having a baby", meaningKh: "ឈប់សម្រាកមាតុភាព", example: "She went on maternity leave in March.", partOfSpeech: "verb", level: Level.ADVANCED },
+];

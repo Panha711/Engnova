@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const foodDairySnacksVocab: VocabEntry[] = [
+  { word: "milk", meaning: "a white liquid from cows used as a drink", meaningKh: "ទឹកដោះគោ", example: "Pour milk on your cereal.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cheese", meaning: "a solid food made from milk", meaningKh: "ឈីស", example: "Add cheese to the sandwich.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "butter", meaning: "a soft yellow fat made from cream", meaningKh: "ប៊ឺ", example: "Spread butter on warm bread.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "margarine", meaning: "a butter substitute made from vegetable oil", meaningKh: "ម៉ាហ្គារីន", example: "Use margarine for baking.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "yogurt", meaning: "a thick, slightly sour milk product", meaningKh: "ទឹកជូរ", example: "Greek yogurt with honey is healthy.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cream", meaning: "the thick, fatty part of milk", meaningKh: "ក្រែម", example: "Whip cream for the dessert.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fried egg", meaning: "an egg cooked in oil with the yolk on top", meaningKh: "ស៊ុត", example: "He likes a fried egg for breakfast.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "scrambled eggs", meaning: "eggs beaten and cooked while stirring", meaningKh: "ពងឆាក្រឡាក់", example: "Scrambled eggs cook in minutes.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "boiled egg", meaning: "an egg cooked in boiling water in its shell", meaningKh: "ពងទឹកកំប៉ុង", example: "A soft boiled egg has a runny yolk.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "yolk", meaning: "the yellow center of an egg", meaningKh: "លូតពង", example: "The yolk is rich in vitamins.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "egg white", meaning: "the clear part of an egg that surrounds the yolk", meaningKh: "ស៊ុមពង", example: "Whip the egg whites until stiff.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "eggshell", meaning: "the hard outer covering of an egg", meaningKh: "សំបកពង", example: "Crack the eggshell gently.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "poached egg", meaning: "an egg cooked gently in hot water without its shell", meaningKh: "ពងទឹករំពឹង", example: "Poached egg on toast is classic.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "omelet", meaning: "eggs beaten and fried as a flat dish (UK: omelette)", meaningKh: "អូម្លេត", example: "Make a cheese omelet for lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cottage cheese", meaning: "soft white cheese with small lumps", meaningKh: "ឈីសក្តារី", example: "Cottage cheese pairs with fruit.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "burger", meaning: "a sandwich with a ground meat patty in a bun", meaningKh: "ប៊ឺហ្គឺ", example: "Order a burger with fries.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "french fries", meaning: "fried potato strips (UK: chips)", meaningKh: "ដំឡូងជួរ", example: "French fries are salty and crispy.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "hot dog", meaning: "a sausage in a long soft bun", meaningKh: "ហតដក", example: "Hot dogs are popular at baseball games.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "kebab", meaning: "pieces of meat grilled on a skewer", meaningKh: "កាបាប", example: "Lamb kebab with rice is filling.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pizza", meaning: "a flat bread topped with sauce, cheese, and toppings", meaningKh: "ភីហ្សា", example: "We ordered a large pizza.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "wrap", meaning: "food rolled inside a flat bread or tortilla", meaningKh: "រុំ", example: "Chicken wrap is easy to eat.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "soup", meaning: "a liquid dish made by cooking vegetables or meat in water", meaningKh: "ស៊ុប", example: "Tomato soup warms you up.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "sandwich", meaning: "food between two slices of bread", meaningKh: "សាំងវិច", example: "Pack a sandwich for lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "salad", meaning: "a cold dish of raw vegetables", meaningKh: "សាឡាត", example: "Green salad with dressing.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "potato chips", meaning: "thin crispy slices of fried potato (UK: crisps)", meaningKh: "ដំឡូងបំពង", example: "Open a bag of potato chips.", partOfSpeech: "noun", level: Level.BEGINNER },
+];

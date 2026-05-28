@@ -1,0 +1,13 @@
+"use client";
+
+import { ReactNode } from "react";
+import { SessionProvider } from "next-auth/react";
+import { ThemeModeProvider } from "@/components/ThemeModeProvider";
+
+export default function Providers({ children }: { children: ReactNode }) {
+  return (
+    <SessionProvider>
+      <ThemeModeProvider>{children}</ThemeModeProvider>
+    </SessionProvider>
+  );
+}

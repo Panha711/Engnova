@@ -1,0 +1,31 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const foodMeatFishVocab: VocabEntry[] = [
+  { word: "meat", meaning: "animal flesh eaten as food", meaningKh: "សាច់", example: "They grilled meat for dinner.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pork", meaning: "meat from a pig", meaningKh: "សាច់ជ្រូក", example: "Pork chops are on the menu.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chicken", meaning: "meat from a chicken", meaningKh: "សាច់មាន់", example: "Roast chicken smells delicious.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chicken leg", meaning: "the leg part of a chicken", meaningKh: "ភ្លៅមាន់", example: "Fry the chicken legs until golden.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chicken breast", meaning: "the breast meat of a chicken", meaningKh: "ដើមមាន់", example: "Slice the chicken breast thinly.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chicken wing", meaning: "the wing of a chicken eaten as food", meaningKh: "ស្លាបមាន់", example: "Spicy chicken wings are popular.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lamb", meaning: "meat from a young sheep", meaningKh: "សាច់ចៀម", example: "Lamb stew is a winter dish.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "beef", meaning: "meat from a cow", meaningKh: "សាច់គោ", example: "Beef steak is served medium rare.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "sausages", meaning: "tubes of seasoned meat in a skin", meaningKh: "សាច់ក្រក", example: "Grill sausages for breakfast.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bacon", meaning: "salted or smoked strips of pork", meaningKh: "សាច់ជ្រូកអាំង", example: "Bacon and eggs for breakfast.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ham", meaning: "salted or smoked meat from a pig's leg", meaningKh: "សាច់ជ្រូកហាំ", example: "Sandwich with ham and cheese.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fish", meaning: "an animal that lives in water, eaten as food", meaningKh: "ត្រី", example: "Fresh fish is best grilled.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "salmon", meaning: "a large pink fish eaten as food", meaningKh: "ត្រីសាឡម៉ុន", example: "Salmon is rich in omega-3.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lobster", meaning: "a large shellfish with claws", meaningKh: "បង្កង", example: "Lobster is expensive at restaurants.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "octopus", meaning: "a sea animal with eight arms, eaten as food", meaningKh: "មាន់ទឹក", example: "Grilled octopus is a delicacy.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "scallops", meaning: "shellfish with round white meat", meaningKh: "ខ្យងសមុទ្រ", example: "Pan-sear the scallops quickly.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "mackerel", meaning: "an oily fish often grilled or canned", meaningKh: "ត្រីអ៊ីង", example: "Smoked mackerel tastes strong.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "sardines", meaning: "small oily fish, often canned", meaningKh: "ត្រីសាឌីន", example: "Sardines on toast is a quick lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cod", meaning: "a white fish used in fish and chips", meaningKh: "ត្រីកូដ", example: "Cod fillets bake in twenty minutes.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "sushi", meaning: "Japanese dish of rice with raw fish or vegetables", meaningKh: "ស៊ូស៊ី", example: "We ordered sushi for lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "seafood platter", meaning: "a large plate with many types of seafood", meaningKh: "ចានគ្រឿងសមុទ្រ", example: "Share a seafood platter at the beach.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "shrimp", meaning: "a small shellfish with a curved body (UK: prawn)", meaningKh: "បង្កង", example: "Shrimp skewers grill in minutes.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mussel", meaning: "a shellfish with a dark shell, often steamed", meaningKh: "ខ្យង", example: "Mussels open when they are cooked.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "crab", meaning: "a sea animal with claws and a hard shell", meaningKh: "ក្តាម", example: "Crab meat is sweet and tender.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "squid", meaning: "a sea animal with ten arms, eaten as calamari", meaningKh: "មឹក", example: "Fried squid is called calamari.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "oyster", meaning: "a shellfish that can be eaten raw", meaningKh: "ខ្យងគម្រប់", example: "Oysters are served on ice.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+];

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const officeSuppliesVocab: VocabEntry[] = [
+  { word: "letter", meaning: "a written message on paper", meaningKh: "លិខិត", example: "She wrote a letter to the manager.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "envelope", meaning: "a paper cover for a letter", meaningKh: "ស្រោមលិខិត", example: "Put the letter in an envelope.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "calendar", meaning: "a chart showing days, weeks, and months", meaningKh: "ប្រតិទិន", example: "Mark the date on your calendar.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "planner", meaning: "a book for planning your schedule (UK: diary)", meaningKh: "សៀវភៅគម្រោង", example: "Check your planner every morning.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "clipboard", meaning: "a board with a clip for holding papers while writing", meaningKh: "ក្តារកិច្ចការ", example: "The nurse used a clipboard.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "file folder", meaning: "a folded cover for keeping documents (also called a file)", meaningKh: "ថតឯកសារ", example: "Put the invoice in a file folder.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "hole punch", meaning: "a tool that makes holes in paper for filing", meaningKh: "ម៉ាស៊ីនចុចរន្ធ", example: "Use the hole punch on these pages.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "stapler", meaning: "a device that fastens papers with staples", meaningKh: "ម៉ាស៊ីនចុចក្រដាស", example: "The stapler is empty.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "staples", meaning: "small metal pieces used by a stapler", meaningKh: "ដែកចុច", example: "Buy a box of staples.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pencil sharpener", meaning: "a tool that sharpens pencils", meaningKh: "ម៉ាស៊ីនជាប់ខ្មែងខ្មៅ", example: "The pencil sharpener is on the shelf.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pencil", meaning: "a writing tool made of wood and graphite", meaningKh: "ខ្មៅខ្មែង", example: "Sharpen your pencil.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pen", meaning: "a tool for writing with ink", meaningKh: "ប៊ិច", example: "Sign with a blue pen.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "highlighter", meaning: "a pen with bright ink for marking important text", meaningKh: "ប៊ិចគូរបន្លុះ", example: "Highlight the key dates.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "adhesive tape", meaning: "clear sticky tape for sticking paper", meaningKh: "ស្កុត", example: "Seal the box with adhesive tape.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "notepad", meaning: "a small book of blank pages for notes", meaningKh: "សៀវភៅចំណាំ", example: "Write it on your notepad.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "paper clips", meaning: "small metal clips that hold papers together", meaningKh: "ឃ្លីបក្រដាស", example: "Use paper clips instead of staples.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "eraser", meaning: "a tool that removes pencil marks (UK: rubber)", meaningKh: "ជ័រលុប", example: "Borrow an eraser.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ruler", meaning: "a flat tool for measuring or drawing straight lines", meaningKh: "បន្ទាត់", example: "Draw a line with a ruler.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "paper", meaning: "thin material used for writing and printing", meaningKh: "ក្រដាស", example: "We need more printer paper.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "correction fluid", meaning: "white liquid used to cover mistakes on paper", meaningKh: "ទឹកលុប", example: "Cover the typo with correction fluid.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "sticky notes", meaning: "small pieces of paper with glue on one side", meaningKh: "ក្រដាសជាប់", example: "Leave a message on sticky notes.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "rubber bands", meaning: "elastic loops used to hold things together", meaningKh: "ខ្សែរុញ", example: "Wrap the cards with rubber bands.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "binder clip", meaning: "a strong metal clip for holding thick stacks of paper", meaningKh: "ឃ្លីបចងក្រដាស", example: "Use a binder clip on the report.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "thumbtack", meaning: "a short pin with a flat head for pinning notices (UK: drawing pin)", meaningKh: "ម្ជុលចុច", example: "Push the thumbtack into the board.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "scissors", meaning: "a tool with two blades for cutting paper", meaningKh: "កន្ត្រាក់", example: "Be careful with the scissors.", partOfSpeech: "noun", level: Level.BEGINNER },
+];

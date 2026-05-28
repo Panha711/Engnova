@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const moneyVocab: VocabEntry[] = [
+  { word: "bills", meaning: "paper money (UK: banknotes)", meaningKh: "ក្រដាសប្រាក់", example: "Pay with bills or a card.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "coins", meaning: "round metal money", meaningKh: "កាក់", example: "Save your coins in a jar.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "wallet", meaning: "a small case for carrying money and cards", meaningKh: "កាបូបលុយ", example: "He left his wallet at home.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "purse", meaning: "a small bag for money and personal items (UK; US often means a woman's wallet)", meaningKh: "កាបូបដៃ", example: "She kept her keys in her purse.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "credit card", meaning: "a card you use to borrow money for purchases", meaningKh: "កាតឥណទាន", example: "Pay by credit card.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "debit card", meaning: "a card that takes money directly from your bank account", meaningKh: "កាតឥណពន្ធ", example: "Use your debit card at the ATM.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ATM", meaning: "a machine where you get cash from your bank (cash machine)", meaningKh: "ម៉ាស៊ីនដកលុយ", example: "Withdraw cash at the ATM.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bank", meaning: "a business that keeps and lends money", meaningKh: "ធនាគារ", example: "Open an account at the bank.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bank statement", meaning: "a printed record of money in and out of your account", meaningKh: "របាយការណ៍ធនាគារ", example: "Check your bank statement online.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "online banking", meaning: "managing your bank account on the internet", meaningKh: "ធនាគារតាមអ៊ីនធឺណិត", example: "Online banking is convenient.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "mobile banking", meaning: "managing your bank account on a phone", meaningKh: "ធនាគារតាមទូរស័ព្ទ", example: "Use mobile banking to pay bills.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "receipt", meaning: "a paper showing what you paid for", meaningKh: "បង្កាន់ដៃ", example: "Keep the receipt for returns.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "currency", meaning: "the money used in a country", meaningKh: "រូបិយប័ណ្ណ", example: "Exchange currency at the airport.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "cash register", meaning: "a machine that records sales and holds cash (UK: till)", meaningKh: "ម៉ាស៊ីនគិតលុយ", example: "The cashier opened the cash register.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "invoice", meaning: "a document requesting payment for goods or services", meaningKh: "វិក្កយបត្រ", example: "Send the invoice by email.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "check", meaning: "a written order to pay money from a bank account (UK: cheque)", meaningKh: "មូលប្បទានប័ត្រ", example: "He paid by check.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "mortgage", meaning: "a loan to buy a house, paid back over many years", meaningKh: "កម្ចីទិញផ្ទះ", example: "They applied for a mortgage.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "bank loan", meaning: "money borrowed from a bank that you must repay", meaningKh: "កម្ចីធនាគារ", example: "The business got a bank loan.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "PIN", meaning: "a secret number used with a bank card", meaningKh: "លេខសម្ងាត់", example: "Never share your PIN.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "stock exchange", meaning: "a market where company shares are bought and sold", meaningKh: "ផ្សារភាគហ៊ុន", example: "Prices rose on the stock exchange.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "interest rate", meaning: "the percentage a bank charges or pays on money", meaningKh: "អត្រាការប្រាក់", example: "Interest rates went up.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "withdraw money", meaning: "to take money out of a bank account", meaningKh: "ដកលុយ", example: "I withdrew money from the ATM.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "change money", meaning: "to exchange one currency for another", meaningKh: "ប្តូរលុយ", example: "Where can I change money?", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "transfer money", meaning: "to send money from one account to another", meaningKh: "ផ្ទេរលុយ", example: "Transfer money to savings.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "save money", meaning: "to keep money for the future instead of spending it", meaningKh: "សន្សំលុយ", example: "She saves money every month.", partOfSpeech: "verb", level: Level.BEGINNER },
+];

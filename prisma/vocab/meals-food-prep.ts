@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const mealsFoodPrepVocab: VocabEntry[] = [
+  { word: "breakfast", meaning: "the first meal of the day, usually in the morning", meaningKh: "អាហារពេលព្រឹក", example: "I eat breakfast at seven.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "brunch", meaning: "a meal between breakfast and lunch", meaningKh: "អាហាររសៀលព្រឹក", example: "We had brunch on Sunday.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lunch", meaning: "a meal eaten in the middle of the day", meaningKh: "អាហារថ្ងៃត្រង់", example: "Let's meet for lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "dinner", meaning: "the main meal of the evening", meaningKh: "អាហារពេលល្ងាច", example: "Dinner is ready at six.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "snack", meaning: "a small amount of food eaten between meals", meaningKh: "អាហារសម្រន់", example: "She had a snack after school.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "broil", meaning: "to cook under strong direct heat (US; UK: grill)", meaningKh: "អាំង", example: "Broil the fish for ten minutes.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "bake", meaning: "to cook food in an oven using dry heat", meaningKh: "ដុតនំ", example: "Bake the bread at 180°C.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "roast", meaning: "to cook meat or vegetables in an oven", meaningKh: "អាំងឱ្យទន់", example: "Roast the chicken until golden.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "boil", meaning: "to heat liquid until bubbles form", meaningKh: "ឆ្អិន", example: "Boil the water first.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "fry", meaning: "to cook food in hot oil or fat", meaningKh: "ចៀន", example: "Fry the onions until soft.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "peel", meaning: "to remove the skin from fruit or vegetables", meaningKh: "កាត់សំបក", example: "Peel the potatoes.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "slice", meaning: "to cut food into thin flat pieces", meaningKh: "ឆាកជ្រាប", example: "Slice the bread thinly.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "grate", meaning: "to rub food against a grater to make small pieces", meaningKh: "កៀរ", example: "Grate the cheese over the pasta.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "pour", meaning: "to make liquid flow from a container", meaningKh: "ចាក់", example: "Pour the milk into the bowl.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "mix", meaning: "to combine ingredients together", meaningKh: "លាយ", example: "Mix the flour and eggs.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "add", meaning: "to put an ingredient into a dish", meaningKh: "បន្ថែម", example: "Add salt to taste.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "whisk", meaning: "to beat ingredients quickly with a whisk", meaningKh: "វាយលាយ", example: "Whisk the eggs until fluffy.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "roll", meaning: "to flatten dough with a rolling pin", meaningKh: "រមូរ", example: "Roll the dough into a circle.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "stir", meaning: "to move a spoon around in food or liquid", meaningKh: "កូរ", example: "Stir the soup gently.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "simmer", meaning: "to cook just below boiling with small bubbles", meaningKh: "ឆ្អិនរង្វាល់", example: "Let the sauce simmer for twenty minutes.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "poach", meaning: "to cook gently in hot liquid", meaningKh: "ឆ្អិនក្នុងទឹក", example: "Poach the eggs in water.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "mash", meaning: "to crush food until smooth", meaningKh: "ទំញើ", example: "Mash the potatoes with butter.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "chop", meaning: "to cut food into irregular pieces", meaningKh: "ចិត", example: "Chop the vegetables finely.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "cut", meaning: "to divide food with a knife", meaningKh: "កាត់", example: "Cut the melon in half.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "mince", meaning: "to cut food into very small pieces", meaningKh: "កិច", example: "Mince the garlic.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+];

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const drivingVerbsVocab: VocabEntry[] = [
+  { word: "parking attendant", meaning: "a person who helps drivers park or collects parking fees", meaningKh: "អ្នកចតរថយន្ត", example: "Ask the parking attendant for a ticket.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "speed camera", meaning: "a camera that records cars driving too fast", meaningKh: "កាមេរ៉ាចាប់ល្បឿន", example: "A speed camera caught him.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "parking meter", meaning: "a machine where you pay for street parking", meaningKh: "ម៉ាស៊ីនគិតថ្លៃចត", example: "Put coins in the parking meter.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "wheel clamp", meaning: "a device locked on a wheel to stop a car moving", meaningKh: "ជំលៀកកង់", example: "They put a wheel clamp on his car.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "parking ticket", meaning: "a fine for illegal parking", meaningKh: "ប័ណ្ណពិន័យចត", example: "He got a parking ticket.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "car wash", meaning: "a place or service that cleans cars", meaningKh: "កន្លែងលាងរថយន្ត", example: "We went through the car wash.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "speed limit", meaning: "the highest speed allowed on a road", meaningKh: "កំណត់ល្បឿន", example: "The speed limit is 50 km/h.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "road sign", meaning: "a sign that gives information or rules to drivers", meaningKh: "ផ្លាកចរាចរណ៍", example: "Follow the road signs.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "traffic jam", meaning: "a long line of vehicles that cannot move", meaningKh: "រទលចរាចរណ៍", example: "We were stuck in a traffic jam.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "parking lot", meaning: "an area where cars can park (UK: car park)", meaningKh: "ចំណតរថយន្ត", example: "The parking lot was full.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "park", meaning: "to stop and leave a car in a place", meaningKh: "ចត", example: "Park in the bay over there.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "set off", meaning: "to start a journey", meaningKh: "ចាប់ដំណើរ", example: "We set off at dawn.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "check the oil", meaning: "to look at the oil level in a car engine", meaningKh: "ពិនិត្យប្រេង", example: "Check the oil before a long trip.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "fill up", meaning: "to put fuel in a vehicle until the tank is full", meaningKh: "បំពេញសាំង", example: "We stopped to fill up.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "check the tires", meaning: "to inspect tires for damage or pressure (UK: tyres)", meaningKh: "ពិនិត្យសំបកកង់", example: "Check the tires every month.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "service the car", meaning: "to have a car checked and maintained professionally", meaningKh: "ថែទាំរថយន្ត", example: "Service the car twice a year.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "signal", meaning: "to show which way you will turn with lights (UK: indicate)", meaningKh: "បញ្ជាក់ទិស", example: "Signal before you change lanes.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "brake", meaning: "to slow or stop a vehicle", meaningKh: "ហេប", example: "Brake when you see the lights.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "slow down", meaning: "to reduce speed", meaningKh: "បន្ថយល្បឿន", example: "Slow down near schools.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "speed up", meaning: "to go faster", meaningKh: "បង្កើនល្បឿន", example: "Speed up to merge safely.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "pick someone up", meaning: "to stop and let someone get into your car", meaningKh: "ទៅយកអ្នកណាម្នាក់", example: "Can you pick me up at six?", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "drop someone off", meaning: "to stop and let someone leave your car", meaningKh: "ទម្លាក់អ្នកណាម្នាក់", example: "Drop me off at the corner.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "have a car accident", meaning: "to crash or hit something while driving", meaningKh: "មានគ្រោះថ្នាក់ចរាចរណ៍", example: "Luckily no one was hurt in the car accident.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "break down", meaning: "when a vehicle stops working", meaningKh: "ខូច", example: "Our car broke down on the highway.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "overtake", meaning: "to pass another vehicle going the same way (US: pass)", meaningKh: "បើកបញ្ចេញ", example: "Do not overtake on a curve.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+];

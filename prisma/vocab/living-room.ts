@@ -1,0 +1,33 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const livingRoomVocab: VocabEntry[] = [
+  { word: "coffee table", meaning: "a low table placed in front of a sofa", meaningKh: "តុកាហ្វេ", example: "Put the magazines on the coffee table.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "rug", meaning: "a thick piece of fabric placed on a floor", meaningKh: "កម្រាល", example: "A soft rug covers the living room floor.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "floor", meaning: "the surface you walk on inside a room", meaningKh: "ឥដ្ឋ", example: "Sweep the floor after lunch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "armchair", meaning: "a comfortable chair with supports for your arms", meaningKh: "កៅអីដៃ", example: "Grandpa reads the newspaper in his armchair.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "end table", meaning: "a small table placed at the end of a sofa", meaningKh: "តុចុង", example: "The lamp sits on the end table.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lamp", meaning: "a device that gives off light, usually electric", meaningKh: "ភ្លើងតុ", example: "Turn on the lamp by the sofa.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lampshade", meaning: "a cover placed over a lamp bulb to soften the light", meaningKh: "គម្របភ្លើង", example: "Dust the lampshade once a week.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "drapes", meaning: "long, heavy curtains hung at windows (also: curtains)", meaningKh: "វាំងនន", example: "Close the drapes at night.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "curtains", meaning: "pieces of cloth that hang over a window", meaningKh: "វាំងនន", example: "Open the curtains to let in light.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "sofa", meaning: "a long, soft seat for two or more people (also: couch)", meaningKh: "សាឡុង", example: "Sit on the sofa and relax.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "couch", meaning: "a soft seat for several people (also: sofa)", meaningKh: "សាឡុង", example: "The cat is sleeping on the couch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "throw pillow", meaning: "a small decorative pillow placed on a sofa or chair", meaningKh: "ខ្នើយតុបតែង", example: "Add a few throw pillows to the couch.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ceiling", meaning: "the top inside surface of a room", meaningKh: "ពិដាន", example: "Paint the ceiling white.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "wall", meaning: "a vertical side of a room", meaningKh: "ជញ្ជាំង", example: "Hang the painting on the wall.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "wall unit", meaning: "a large piece of furniture along a wall with shelves and cabinets", meaningKh: "ទូជញ្ជាំង", example: "Store books and the TV in the wall unit.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "television", meaning: "a device for watching programs (also: TV)", meaningKh: "ទូរទស្សន៍", example: "Lower the television volume, please.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "VCR", meaning: "a video cassette recorder for playing tapes", meaningKh: "ម៉ាស៊ីនថត VCR", example: "The old VCR still works.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "stereo system", meaning: "an audio system with speakers for playing music", meaningKh: "ប្រព័ន្ធស្តេរេអូ", example: "Play the album on the stereo system.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "speaker", meaning: "a device that produces sound from a stereo or computer", meaningKh: "ឧបករណ៍បញ្ចេញសំឡេង", example: "Move the speaker closer to the sofa.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "loveseat", meaning: "a small sofa that seats two people", meaningKh: "សាឡុងពីរកន្លែង", example: "The loveseat fits perfectly by the window.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "plant", meaning: "a living thing that grows in soil, often kept indoors", meaningKh: "រុក្ខជាតិ", example: "Water the plant once a week.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "painting", meaning: "a picture made with paint", meaningKh: "គំនូរ", example: "The painting on the wall is beautiful.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "frame", meaning: "a wood or metal border around a picture", meaningKh: "ស៊ុមរូប", example: "Put the photo in a wooden frame.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mantel", meaning: "the shelf above a fireplace", meaningKh: "ធ្នើខាងលើភ្លើងក្តៅ", example: "Family photos sit on the mantel.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "fireplace", meaning: "a structure for holding a fire indoors", meaningKh: "កន្លែងដាក់ភ្លើងក្តៅ", example: "We sit by the fireplace in winter.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fireplace screen", meaning: "a metal screen placed in front of a fireplace for safety", meaningKh: "ផ្ទាំងបាំងភ្លើងក្តៅ", example: "Use a fireplace screen to stop sparks.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "photograph", meaning: "a picture made with a camera (also: picture)", meaningKh: "រូបថត", example: "Frame your favorite photograph.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bookcase", meaning: "a piece of furniture with shelves for books", meaningKh: "ទូសៀវភៅ", example: "The bookcase is full of novels.", partOfSpeech: "noun", level: Level.BEGINNER },
+];

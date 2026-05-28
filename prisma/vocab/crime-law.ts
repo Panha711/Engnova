@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const crimeLawVocab: VocabEntry[] = [
+  { word: "robbery", meaning: "stealing from a person or place using force or threats", meaningKh: "ចោរកម្ម", example: "The bank robbery was caught on camera.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "burglary", meaning: "illegally entering a building to steal", meaningKh: "ចូលផ្ទះចោរកម្ម", example: "Burglary rates fell last year.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "mugging", meaning: "attacking and robbing someone in a public place", meaningKh: "ឆក់ចោរកម្ម", example: "He was a victim of mugging downtown.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "car theft", meaning: "stealing a motor vehicle", meaningKh: "ចោររថយន្ត", example: "Car theft is common in big cities.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "shoplifting", meaning: "stealing goods from a shop", meaningKh: "ចោរហាង", example: "Shoplifting is a criminal offense.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "pickpocketing", meaning: "stealing from someone's pocket or bag", meaningKh: "ឆក់ហោប៉ៅ", example: "Watch for pickpocketing in crowds.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "vandalism", meaning: "deliberately damaging property", meaningKh: "ខូចខាតទ្រព្យ", example: "Graffiti can be a form of vandalism.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "graffiti", meaning: "writing or drawings sprayed illegally on walls", meaningKh: "គូរលើជញ្ជាំង", example: "The wall was covered in graffiti.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fraud", meaning: "crime of cheating people for money", meaningKh: "ក្លែងបន្លំ", example: "Credit card fraud is increasing.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "hacking", meaning: "illegally accessing computers or data", meaningKh: "គេហករណ្កម្ម", example: "Hacking into accounts is illegal.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "hooliganism", meaning: "violent, destructive behavior, often by groups", meaningKh: "អាយុវ៉ាន់", example: "Hooliganism broke out after the match.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "drug dealing", meaning: "illegally selling drugs", meaningKh: "លក់គ្រឿងញៀន", example: "Police arrested him for drug dealing.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "smuggling", meaning: "illegally moving goods into or out of a country", meaningKh: "រំលែក", example: "Smuggling goods avoids customs tax.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "speeding", meaning: "driving faster than the legal limit", meaningKh: "បើកលឿនហួសកំណត់", example: "He got a ticket for speeding.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bribery", meaning: "giving money or gifts to influence someone illegally", meaningKh: "រួចញ្ញាក", example: "Bribery undermines fair government.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "police", meaning: "officers who enforce the law and keep order", meaningKh: "ប៉ូលីស", example: "Call the police in an emergency.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "law court", meaning: "a building where legal cases are heard", meaningKh: "តុលាការ", example: "The trial was held at the law court.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "judge", meaning: "an official who decides cases in court", meaningKh: "ចុងតុលាការ", example: "The judge listened to both sides.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lawyer", meaning: "a person trained to advise and represent people in legal matters", meaningKh: "មេធាវី", example: "Hire a lawyer before signing the contract.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "jury", meaning: "a group of citizens who decide if someone is guilty in a trial", meaningKh: "គណៈភិបាល", example: "The jury reached a unanimous verdict.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "trial", meaning: "a legal process to decide if someone committed a crime", meaningKh: "សវនកម្ម", example: "The trial lasted two weeks.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "witness", meaning: "a person who saw a crime and testifies in court", meaningKh: "សាក្សី", example: "The witness described what she saw.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "fine", meaning: "money paid as punishment for breaking a law", meaningKh: "ពិន័យ", example: "He paid a fine for illegal parking.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "prison", meaning: "a building where criminals are kept as punishment", meaningKh: "គុក", example: "He was sent to prison for five years.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "criminal record", meaning: "an official list of a person's past crimes", meaningKh: "ប្រវត្តិឧក្រិដ្ឋកម្ម", example: "A criminal record can affect job prospects.", partOfSpeech: "noun", level: Level.ADVANCED },
+];

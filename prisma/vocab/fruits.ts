@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const fruitsVocab: VocabEntry[] = [
+  { word: "apple", meaning: "a round fruit with red or green skin", meaningKh: "ផ្លែប៉ោម", example: "An apple a day keeps the doctor away.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "orange", meaning: "a round citrus fruit with orange skin", meaningKh: "ផ្លែក្រូចពណ៌", example: "Peel the orange before eating.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "banana", meaning: "a long yellow fruit with soft flesh", meaningKh: "ផ្លែចេក", example: "Slice banana on your cereal.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "strawberries", meaning: "small red berries with seeds on the outside", meaningKh: "ផ្លែស្ត្របឺរី", example: "Strawberries taste sweet in summer.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mango", meaning: "a sweet tropical fruit with orange flesh", meaningKh: "ផ្លែស្វាយ", example: "Ripe mango is juicy and fragrant.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pineapple", meaning: "a large tropical fruit with spiky skin", meaningKh: "ផ្លែម្នាស់", example: "Fresh pineapple is tangy and sweet.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lemon", meaning: "a sour yellow citrus fruit", meaningKh: "ផ្លែក្រូចឆ្មា", example: "Add lemon to your tea.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "melon", meaning: "a large sweet fruit such as cantaloupe or honeydew", meaningKh: "ផ្លែឪឡឹក", example: "Chill melon slices for dessert.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "raspberries", meaning: "small soft red berries", meaningKh: "ផ្លែរ៉ាសបឺរី", example: "Raspberries spoil quickly.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "peach", meaning: "a soft fruit with fuzzy skin and a large pit", meaningKh: "ផ្លែប៉ែ", example: "Peach juice dripped down his chin.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pear", meaning: "a sweet fruit that is narrow at the top", meaningKh: "ផ្លែផែ", example: "A ripe pear is soft near the stem.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "grapes", meaning: "small round fruits that grow in bunches", meaningKh: "ផ្លែទំពាំងបាយជូ", example: "Grapes can be green or purple.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "mandarin", meaning: "a small easy-to-peel orange", meaningKh: "ផ្លែក្រូចរ៉េម៉ាំង", example: "Mandarin segments are sweet.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "grapefruit", meaning: "a large citrus fruit with tart pink or yellow flesh", meaningKh: "ផ្លែក្រូចថ្លុង", example: "Grapefruit is bitter for some people.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "lime", meaning: "a small green citrus fruit", meaningKh: "ផ្លែក្រូចឆ្មាបៃតង", example: "Squeeze lime on the tacos.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "nectarine", meaning: "a smooth-skinned fruit like a peach", meaningKh: "ផ្លែណិកតារីន", example: "Nectarines are in season now.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "apricot", meaning: "a small orange fruit related to the peach", meaningKh: "ផ្លែអាព្រិក", example: "Dried apricots make a good snack.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "plum", meaning: "a small oval fruit with smooth skin", meaningKh: "ផ្លែព្លាំ", example: "The plum was ripe and juicy.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cherries", meaning: "small round red or black fruits with pits", meaningKh: "ផ្លែឈឺរី", example: "Cherries grow on trees in spring.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "blackberries", meaning: "dark purple berries that grow on thorny bushes", meaningKh: "ផ្លែប្លាកបឺរី", example: "Pick blackberries carefully.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "blueberries", meaning: "small round blue berries", meaningKh: "ផ្លែប្លូបឺរី", example: "Blueberries are full of antioxidants.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "cranberries", meaning: "small tart red berries", meaningKh: "ផ្លែក្រាបឺរី", example: "Cranberry sauce is served at Thanksgiving.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "blackcurrants", meaning: "small black berries used in jams and juice", meaningKh: "ផ្លែក្រាបឺរី", example: "Blackcurrant jam is popular in the UK.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "watermelon", meaning: "a large fruit with green skin and red, juicy flesh", meaningKh: "ផ្លែឪឡឹក", example: "Watermelon is refreshing in summer.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "papaya", meaning: "a tropical fruit with orange flesh and black seeds", meaningKh: "ផ្លែល្ហុង", example: "Papaya salad is spicy and sour.", partOfSpeech: "noun", level: Level.BEGINNER },
+];

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const subjectsVocab: VocabEntry[] = [
+  { word: "English", meaning: "the study of the English language and literature", meaningKh: "ភាសាអង់គ្លេស", example: "She excels in English class.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "art", meaning: "the study of drawing, painting, and creative expression", meaningKh: "សិល្បៈ", example: "We painted landscapes in art.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "history", meaning: "the study of past events and civilizations", meaningKh: "ប្រវត្តិសាស្ត្រ", example: "History class covers ancient Rome.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "geography", meaning: "the study of places, maps, and the earth", meaningKh: "ភូមិសាស្ត្រ", example: "Geography teaches countries and capitals.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "science", meaning: "the general study of the natural world through experiments", meaningKh: "វិទ្យាសាស្ត្រ", example: "Science includes biology and physics.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "biology", meaning: "the study of living things", meaningKh: "ជីវវិទ្យា", example: "We dissected a flower in biology.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "physics", meaning: "the study of matter, energy, and forces", meaningKh: "រូបវិទ្យា", example: "Physics explains how gravity works.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "chemistry", meaning: "the study of substances and how they react", meaningKh: "គីមីវិទ្យា", example: "Wear goggles in chemistry lab.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "math", meaning: "the study of numbers and shapes (UK: maths)", meaningKh: "គណិតវិទ្យា", example: "Math homework is due tomorrow.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "medicine", meaning: "the study of health, disease, and treating patients", meaningKh: "វេជ្ជសាស្ត្រ", example: "She wants to study medicine at university.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "economics", meaning: "the study of money, trade, and resources", meaningKh: "សេដ្ឋកិច្ច", example: "Economics explains supply and demand.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "law", meaning: "the study of legal rules and justice", meaningKh: "ច្បាប់", example: "He is reading law at college.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "business studies", meaning: "the study of how companies operate", meaningKh: "ពាណិជ្ជកម្ម", example: "Business studies covers marketing basics.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "engineering", meaning: "the study of designing and building machines and structures", meaningKh: "វិស្វកម្ម", example: "Engineering students build robots.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "architecture", meaning: "the study of designing buildings", meaningKh: "ស្ថាបត្យកម្ម", example: "Architecture blends art and math.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "psychology", meaning: "the study of the mind and behavior", meaningKh: "ចិត្តវិទ្យា", example: "Psychology explores how people think.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "philosophy", meaning: "the study of knowledge, ethics, and existence", meaningKh: "ទស្សនវិជ្ជា", example: "Philosophy asks big questions about life.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "music", meaning: "the study of sound, instruments, and composition", meaningKh: "តន្ត្រី", example: "Music class meets in the auditorium.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "drama", meaning: "the study of acting and theater", meaningKh: "ល្ខោន", example: "They performed a play in drama.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "languages", meaning: "the study of foreign languages", meaningKh: "ភាសាបរទេស", example: "Languages include French and Spanish.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "design and technology", meaning: "the study of practical design and making products", meaningKh: "រចនា និងបច្ចេកវិទ្យា", example: "Design and technology uses workshops.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "information technology", meaning: "the study of computers and digital systems", meaningKh: "បច្ចេកវិទ្យាព័ត៌មាន", example: "Information technology teaches coding basics.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "physical education", meaning: "school lessons in sports and fitness (PE)", meaningKh: "អប់រំកាយ", example: "Physical education is on the field today.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "veterinary medicine", meaning: "the study of animal health and treatment", meaningKh: "ពេទ្យសត្វ", example: "Veterinary medicine trains animal doctors.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "geology", meaning: "the study of rocks and the earth's structure", meaningKh: "ភូមិវិទ្យា", example: "Geology examines fossils and minerals.", partOfSpeech: "noun", level: Level.ADVANCED },
+];

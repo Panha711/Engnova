@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const transportationTravelVocab: VocabEntry[] = [
+  { word: "passengers", meaning: "people traveling in a vehicle but not driving it", meaningKh: "អ្នកដំណើរ", example: "All passengers must wear seatbelts.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "pedestrian", meaning: "a person walking in the street", meaningKh: "អ្នកថ្មើជើង", example: "Drivers must watch for pedestrians.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "commuters", meaning: "people who travel regularly between home and work", meaningKh: "អ្នកធ្វើដំណើរទៅការងារ", example: "Commuters crowded the train.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "train station", meaning: "a place where trains stop for passengers", meaningKh: "ស្ថានីយរថភ្លើង", example: "Meet me at the train station.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "platform", meaning: "the area beside train tracks where passengers wait", meaningKh: "ផ្ទះរង", example: "The train is at platform three.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ticket", meaning: "a paper or electronic pass that allows travel", meaningKh: "សំបុត្រ", example: "Buy a ticket online.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bus stop", meaning: "a place where a bus picks up and drops off passengers", meaningKh: "ចំណុចឈប់ឡានក្រុង", example: "Wait at the bus stop.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "airport", meaning: "a place where airplanes take off and land", meaningKh: "អាកាសយានដ្ឋាន", example: "Arrive at the airport two hours early.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "taxi stand", meaning: "a place where taxis wait for customers (UK: taxi rank)", meaningKh: "កន្លែងឈប់តាក់ស៊ី", example: "Taxis line up at the taxi stand.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "port", meaning: "a place where ships load and unload", meaningKh: "កំពង់ផែ", example: "The ship arrived at the port.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "ride a bike", meaning: "to travel on a bicycle", meaningKh: "ជិះកង់", example: "I ride a bike to work.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "ride a horse", meaning: "to sit on and control a horse", meaningKh: "ជិះសេះ", example: "They learned to ride a horse.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "take a flight", meaning: "to travel by airplane", meaningKh: "ជិះយន្តហោះ", example: "We take a flight at noon.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "drive a car", meaning: "to control a car on the road", meaningKh: "បើករថយន្ត", example: "She learned to drive a car.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "take the bus", meaning: "to travel by bus", meaningKh: "ជិះឡានក្រុង", example: "He takes the bus every day.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "take the train", meaning: "to travel by train", meaningKh: "ជិះរថភ្លើង", example: "We take the train to the city.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "walk", meaning: "to move on foot", meaningKh: "ដើរ", example: "It is faster to walk.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "hitchhike", meaning: "to get free rides from drivers by asking at the roadside", meaningKh: "ចុះរថយន្តឥតគិតថ្លៃ", example: "They hitchhiked across the country.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "get on a bus", meaning: "to board a bus", meaningKh: "ឡើងឡានក្រុង", example: "Get on a bus at the next stop.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "get off a bus", meaning: "to leave a bus", meaningKh: "ចុះឡានក្រុង", example: "Get off a bus after the bridge.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "get in a taxi", meaning: "to enter a taxi", meaningKh: "ឡើងតាក់ស៊ី", example: "We got in a taxi at the hotel.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "get out of a taxi", meaning: "to leave a taxi", meaningKh: "ចុះតាក់ស៊ី", example: "Get out of a taxi here.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "catch a train", meaning: "to arrive in time to board a train", meaningKh: "ទាន់រថភ្លើង", example: "Hurry or we will not catch a train.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "miss a train", meaning: "to arrive too late for a train", meaningKh: "ខកខានរថភ្លើង", example: "We missed a train by one minute.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "give someone a ride", meaning: "to take someone somewhere in your car (UK: give a lift)", meaningKh: "ជូនដំណើរ", example: "Can you give me a ride home?", partOfSpeech: "verb", level: Level.BEGINNER },
+];

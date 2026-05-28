@@ -1,26 +1,131 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  color-scheme: light;
+  --page-bg: #f4f5f7;
+  --brand-indigo: #6366f1;
+  --brand-purple: #7c5cff;
+  --brand-teal: #14b8a6;
+  --surface-elevated: #ffffff;
+  --vocab-scroll-track: rgba(15, 23, 42, 0.04);
+  --vocab-scroll-thumb: rgba(99, 102, 241, 0.35);
+  --vocab-scroll-thumb-hover: rgba(99, 102, 241, 0.55);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+    --page-bg: #0c0f14;
+    --brand-indigo: #818cf8;
+    --brand-purple: #a78bfa;
+    --brand-teal: #2dd4bf;
+    --surface-elevated: #161b26;
+    --vocab-scroll-track: rgba(248, 250, 252, 0.05);
+    --vocab-scroll-thumb: rgba(129, 140, 248, 0.4);
+    --vocab-scroll-thumb-hover: rgba(129, 140, 248, 0.6);
   }
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #f4f5f7;
+  --brand-indigo: #6366f1;
+  --brand-purple: #7c5cff;
+  --brand-teal: #14b8a6;
+  --surface-elevated: #ffffff;
+  --vocab-scroll-track: rgba(15, 23, 42, 0.04);
+  --vocab-scroll-thumb: rgba(99, 102, 241, 0.35);
+  --vocab-scroll-thumb-hover: rgba(99, 102, 241, 0.55);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #0c0f14;
+  --brand-indigo: #818cf8;
+  --brand-purple: #a78bfa;
+  --brand-teal: #2dd4bf;
+  --surface-elevated: #161b26;
+  --vocab-scroll-track: rgba(248, 250, 252, 0.05);
+  --vocab-scroll-thumb: rgba(129, 140, 248, 0.4);
+  --vocab-scroll-thumb-hover: rgba(129, 140, 248, 0.6);
+}
+
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--page-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.22);
+}
+
+/* Vocabulary word list — scroll only the grid area */
+.vocabulary-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vocab-scroll-thumb) var(--vocab-scroll-track);
+}
+
+.vocabulary-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.vocabulary-scroll::-webkit-scrollbar-track {
+  background: var(--vocab-scroll-track);
+  border-radius: 999px;
+}
+
+.vocabulary-scroll::-webkit-scrollbar-thumb {
+  background: var(--vocab-scroll-thumb);
+  border-radius: 999px;
+}
+
+.vocabulary-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--vocab-scroll-thumb-hover);
+}
+
+@keyframes vocabulary-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.vocabulary-word-skeleton {
+  animation: vocabulary-skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.vocabulary-kh {
+  font-family:
+    var(--font-khmer), "Noto Sans Khmer", var(--font-app), sans-serif;
+  display: block;
+}
+
+/* Brand gradient utility */
+.engnova-gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--brand-indigo) 0%,
+    var(--brand-purple) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const workSkillsVocab: VocabEntry[] = [
+  { word: "organization", meaning: "the skill of arranging work and tasks clearly", meaningKh: "ជំនាញរៀបចំ", example: "Good organization saves time.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "IT skills", meaning: "skills in information technology and computers", meaningKh: "ជំនាញព័ត៌មានវិទ្យា", example: "The job requires IT skills.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "administration", meaning: "office work such as filing, scheduling, and records", meaningKh: "រដ្ឋបាល", example: "She has experience in administration.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "problem-solving", meaning: "the ability to find solutions to difficult situations", meaningKh: "ដោះស្រាយបញ្ហា", example: "Problem-solving is essential in this role.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "data analysis", meaning: "examining data to find useful information", meaningKh: "វិភាគទិន្នន័យ", example: "Data analysis helps business decisions.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "decision-making", meaning: "the ability to choose the best course of action", meaningKh: "ការសម្រេចចិត្ត", example: "Quick decision-making is valued here.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "teamwork", meaning: "working well with other people", meaningKh: "ការងារជាក្រុម", example: "Teamwork improves results.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fast learner", meaning: "someone who learns new skills quickly", meaningKh: "រៀនលឿន", example: "We need a fast learner.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "numeracy", meaning: "skill with numbers and basic math", meaningKh: "គណិតវិទ្យា", example: "Numeracy is important for accounting.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "customer service", meaning: "helping customers in a friendly and effective way", meaningKh: "សេវាកម្មអតិថិជន", example: "She has strong customer service skills.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "interpersonal skills", meaning: "skills for communicating and working with people", meaningKh: "ជំនាញទំនាក់ទំនង", example: "Interpersonal skills matter in sales.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "leadership", meaning: "the ability to guide and motivate a team", meaningKh: "ភាពជាអ្នកដឹកនាំ", example: "He showed leadership on the project.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "research", meaning: "careful study to find facts or information", meaningKh: "ការស្រាវជ្រាវ", example: "She does market research.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "fluent in languages", meaning: "able to speak languages easily and well", meaningKh: "និយាយភាសាស្ទាត់", example: "Fluent in languages is a plus.", partOfSpeech: "phrase", level: Level.INTERMEDIATE },
+  { word: "attention to detail", meaning: "careful focus on small but important parts of work", meaningKh: "យកចិត្តទុកដាក់លម្អិត", example: "Editing needs attention to detail.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "negotiating", meaning: "discussing to reach an agreement", meaningKh: "ចរចា", example: "Negotiating skills help in sales.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "public speaking", meaning: "speaking clearly to a group of people", meaningKh: "និយាយបាយការណ៍", example: "Public speaking makes her nervous.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "written communication", meaning: "clear writing in emails, reports, and letters", meaningKh: "ការសរសេរ", example: "Written communication must be professional.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "initiative", meaning: "the ability to start tasks without being told", meaningKh: "ភាពផ្តួចផ្តើម", example: "Show initiative at work.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "telephone manner", meaning: "speaking politely and clearly on the phone", meaningKh: "របៀបនិយាយតាមទូរស័ព្ទ", example: "Good telephone manner impresses clients.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "work well under pressure", meaning: "to stay calm and effective when stressed", meaningKh: "ធ្វើការក្រោមសម្ពាធ", example: "Nurses must work well under pressure.", partOfSpeech: "phrase", level: Level.INTERMEDIATE },
+  { word: "able to drive", meaning: "having a license and skill to drive a vehicle", meaningKh: "ដែលអាចបើកបរ", example: "The job requires someone able to drive.", partOfSpeech: "phrase", level: Level.BEGINNER },
+  { word: "project management", meaning: "planning and leading projects to finish on time", meaningKh: "គ្រប់គ្រងគម្រោង", example: "She studied project management.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "time management", meaning: "using time effectively to meet deadlines", meaningKh: "គ្រប់គ្រងពេលវេលា", example: "Time management reduces stress.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "businesslike attitude", meaning: "a professional and serious approach to work", meaningKh: "ទស្សនៈវិជ្ជាជីវៈ", example: "Maintain a businesslike attitude.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+];

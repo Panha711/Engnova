@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const industriesVocab: VocabEntry[] = [
+  { word: "education", meaning: "the industry of teaching and schools", meaningKh: "វិស័យអប់រំ", example: "She works in education.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "healthcare", meaning: "the industry that provides medical services", meaningKh: "វិស័យសុខាភិបាល", example: "Healthcare jobs are in demand.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "catering", meaning: "the business of providing food for events", meaningKh: "វិស័យភោជនីយដ្ឋាន", example: "Catering companies serve weddings.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "chemical industry", meaning: "the industry that produces chemicals", meaningKh: "វិស័យគីមី", example: "Safety rules are strict in the chemical industry.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "construction industry", meaning: "the industry that builds roads, bridges, and buildings", meaningKh: "វិស័យសំណង់", example: "The construction industry is growing.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "agriculture", meaning: "the industry of farming and growing food (also called farming)", meaningKh: "វិស័យកសិកម្ម", example: "Agriculture employs many workers.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "energy industry", meaning: "the industry that produces and supplies power", meaningKh: "វិស័យថាមពល", example: "The energy industry invests in wind power.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "electronics industry", meaning: "the industry that makes electronic devices", meaningKh: "វិស័យអេឡិចត្រូនិច", example: "The electronics industry changes quickly.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "entertainment industry", meaning: "the industry of film, TV, music, and games", meaningKh: "វិស័យកម្សាន្ត", example: "Hollywood is part of the entertainment industry.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "fashion industry", meaning: "the industry that designs and sells clothing", meaningKh: "វិស័យម៉ូដ", example: "Paris is famous for the fashion industry.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "finance", meaning: "the industry of banking, money, and investments", meaningKh: "វិស័យហិរញ្ញវត្ថុ", example: "He works in finance.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "fishing industry", meaning: "the industry of catching and selling fish", meaningKh: "វិស័យនេសាទ", example: "Coastal towns depend on the fishing industry.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "hospitality", meaning: "the industry of hotels, restaurants, and tourism services", meaningKh: "វិស័យបដិសណ្ឋារកិច្ច", example: "She studied hospitality management.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "journalism industry", meaning: "the industry of news reporting and media", meaningKh: "វិស័យសារព័ត៌មាន", example: "Digital media changed the journalism industry.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "manufacturing", meaning: "the industry of making products in factories", meaningKh: "វិស័យផលិតកម្ម", example: "Manufacturing creates many jobs.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "advertising", meaning: "the industry of promoting products and services", meaningKh: "វិស័យផ្សាយពាណិជ្ជកម្ម", example: "She works in advertising.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "mining", meaning: "the industry of extracting minerals from the earth", meaningKh: "វិស័យរ៉ែ", example: "Mining can be dangerous work.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "petroleum engineering", meaning: "the field of finding and producing oil and gas", meaningKh: "វិស្វកម្មប្រេង", example: "Petroleum engineering pays well.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "pharmaceutical industry", meaning: "the industry that makes medicines", meaningKh: "វិស័យឱសថ", example: "The pharmaceutical industry researches new drugs.", partOfSpeech: "noun", level: Level.ADVANCED },
+  { word: "real estate", meaning: "the industry of buying and selling property (UK: property)", meaningKh: "វិស័យអចលនទ្រព្យ", example: "He works in real estate.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "recycling industry", meaning: "the industry that processes waste into reusable materials", meaningKh: "វិស័យកែច្នៃវត្ថធាតុ", example: "The recycling industry reduces landfill waste.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "shipping industry", meaning: "the industry of transporting goods by sea", meaningKh: "វិស័យដឹកជញ្ជូនសមុទ្រ", example: "The shipping industry moves containers worldwide.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "tourism", meaning: "the industry of travel and holidays", meaningKh: "វិស័យទេសចរណ៍", example: "Tourism supports local businesses.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "transportation", meaning: "the industry of moving people and goods", meaningKh: "វិស័យដឹកជញ្ជូន", example: "Public transportation needs investment.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "aerospace", meaning: "the industry of aircraft and spacecraft", meaningKh: "វិស័យអាកាសអវកម្ម", example: "The aerospace industry builds satellites.", partOfSpeech: "noun", level: Level.ADVANCED },
+];

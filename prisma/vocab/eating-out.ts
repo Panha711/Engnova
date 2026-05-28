@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const eatingOutVocab: VocabEntry[] = [
+  { word: "café", meaning: "a small restaurant that serves coffee and light meals", meaningKh: "ហាងកាហ្វេ", example: "Meet me at the café.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bar", meaning: "a place that serves alcoholic drinks", meaningKh: "បារ", example: "They met at a bar downtown.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "restaurant", meaning: "a place where meals are prepared and served to customers", meaningKh: "ភោជនីយដ្ឋាន", example: "We booked a table at a restaurant.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "food stall", meaning: "a small outdoor stand that sells food", meaningKh: "តូអាហារ", example: "Street food stalls sell noodles.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "napkin", meaning: "a cloth or paper used at meals to wipe your mouth and hands", meaningKh: "ក្រដាសជូតមាត់", example: "Put the napkin on your lap.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "fast food", meaning: "quick, inexpensive food such as burgers and fries", meaningKh: "អាហាររហ័ស", example: "Fast food is convenient but not always healthy.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "chef", meaning: "a professional cook, especially the head cook in a restaurant", meaningKh: "ចុងធ្វើម្ហូប", example: "The chef prepared a special menu.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "waiter", meaning: "a man who serves food in a restaurant", meaningKh: "បុរសជូនអាហារ", example: "The waiter brought the menu.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "waitress", meaning: "a woman who serves food in a restaurant", meaningKh: "ស្ត្រីជូនអាហារ", example: "Ask the waitress for water.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "menu", meaning: "a list of dishes available at a restaurant", meaningKh: "ម៉ឺនុយ", example: "Can I see the menu, please?", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "appetizer", meaning: "a small dish served before the main course (UK: starter)", meaningKh: "មុនអាហារចម្បង", example: "We ordered soup as an appetizer.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "main course", meaning: "the largest dish of a meal (US: entrée)", meaningKh: "អាហារចម្បង", example: "Fish is the main course tonight.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "dessert", meaning: "sweet food eaten at the end of a meal (UK: pudding)", meaningKh: "បង្អែម", example: "Save room for dessert.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "buffet", meaning: "a meal where guests serve themselves from many dishes", meaningKh: "ប៊ូហ្វេ", example: "The hotel offers a breakfast buffet.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "set menu", meaning: "a fixed group of dishes at one price (US: fixed menu)", meaningKh: "ម៉ឺនុយកំណត់", example: "The set menu includes three courses.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "side order", meaning: "an extra dish served with the main course (also called a side)", meaningKh: "ម្ហូបបន្ថែម", example: "I'll have fries as a side order.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "specials", meaning: "dishes offered for a limited time", meaningKh: "ម្ហូបពិសេស", example: "Today's specials are on the board.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "bill", meaning: "a statement of what you owe at a restaurant (US: check)", meaningKh: "វិក្កយបត្រ", example: "Could we have the bill, please?", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "service charge", meaning: "an extra fee added to a restaurant bill for service", meaningKh: "ថ្លៃសេវាកម្ម", example: "A service charge is included.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "tip", meaning: "extra money given to a waiter for good service", meaningKh: "ប្រាក់រង្វាន់", example: "Leave a tip for the waiter.", partOfSpeech: "noun", level: Level.BEGINNER },
+  { word: "make a reservation", meaning: "to book a table or room in advance", meaningKh: "កក់ទុក", example: "Call to make a reservation for Friday.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "order", meaning: "to tell a waiter what food you want", meaningKh: "បញ្ជាទិញ", example: "Are you ready to order?", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "take out", meaning: "to buy food from a restaurant to eat elsewhere (UK: take away)", meaningKh: "យកទៅផ្ទះ", example: "Let's get take out tonight.", partOfSpeech: "verb", level: Level.BEGINNER },
+  { word: "pay separately", meaning: "for each person to pay only for their own meal", meaningKh: "បង់ដាច់គ្នា", example: "We decided to pay separately.", partOfSpeech: "verb", level: Level.INTERMEDIATE },
+  { word: "split the bill", meaning: "to divide the total cost equally among people (US: split the check)", meaningKh: "ចែកវិក្កយបត្រ", example: "Let's split the bill four ways.", partOfSpeech: "verb", level: Level.BEGINNER },
+];

@@ -1,0 +1,30 @@
+import { Level } from "@prisma/client";
+import type { VocabEntry } from "./types";
+
+export const workTraitsVocab: VocabEntry[] = [
+  { word: "organized", meaning: "good at planning and keeping things in order", meaningKh: "មានរបៀបរបប", example: "She is very organized.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "patient", meaning: "able to wait calmly without getting angry", meaningKh: "អត់ធ្មត់", example: "Teachers need to be patient.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "accurate", meaning: "correct and without mistakes", meaningKh: "ត្រឹមត្រូវ", example: "Check that the data is accurate.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "creative", meaning: "good at producing new ideas", meaningKh: "ច្នៃប្រឌិត", example: "A creative designer won the award.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "honest", meaning: "telling the truth and not cheating", meaningKh: "ស្មោះត្រង់", example: "Honest employees build trust.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "practical", meaning: "sensible and useful in real situations", meaningKh: "ជាក់ស្តែង", example: "He gave practical advice.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "professional", meaning: "behaving in a skilled and appropriate way at work", meaningKh: "វិជ្ជាជីវៈ", example: "Dress in a professional way.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "adaptable", meaning: "able to change when situations change", meaningKh: "អាចបត់បែន", example: "Adaptable workers learn new tools fast.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "ambitious", meaning: "wanting to succeed and improve", meaningKh: "មានឆន្ទៈខ្ពស់", example: "She is ambitious about her career.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "calm", meaning: "relaxed and not easily upset", meaningKh: "ស្ងៀមស្ងាត់", example: "Stay calm during the interview.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "confident", meaning: "sure of your abilities", meaningKh: "ជឿជាក់", example: "Speak in a confident voice.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "punctual", meaning: "arriving on time", meaningKh: "មកទាន់ពេល", example: "Be punctual for meetings.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "reliable", meaning: "someone others can depend on", meaningKh: "អាចទុកចិត្ត", example: "He is a reliable colleague.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "customer-focused", meaning: "paying close attention to customer needs", meaningKh: "ផ្តោតអតិថិជន", example: "Our team is customer-focused.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "independent", meaning: "able to work well without much help", meaningKh: "ឯករាជ្យ", example: "She works in an independent way.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "efficient", meaning: "working well without wasting time or resources", meaningKh: "មានប្រសិទ្ធភាព", example: "An efficient process saves money.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "energetic", meaning: "full of energy and enthusiasm", meaningKh: "មានថាមពល", example: "Energetic staff greet customers.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "flexible", meaning: "willing to change plans when needed", meaningKh: "បត់បែន", example: "We need flexible working hours.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "hardworking", meaning: "putting a lot of effort into work", meaningKh: "ខិតខំ", example: "Hardworking students pass exams.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "responsible", meaning: "doing your duties carefully", meaningKh: "ទទួលខុសត្រូវ", example: "Give responsible people more tasks.", partOfSpeech: "adjective", level: Level.BEGINNER },
+  { word: "innovative", meaning: "introducing new ideas or methods", meaningKh: "ច្នៃប្រឌិត", example: "An innovative app changed the market.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "motivated", meaning: "eager to work and achieve goals", meaningKh: "មានការលើកទឹកចិត្ត", example: "Motivated teams meet deadlines.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "determined", meaning: "not giving up easily", meaningKh: "មានចិត្តរឹង", example: "She is determined to succeed.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+  { word: "team player", meaning: "someone who works well with others toward a goal", meaningKh: "អ្នកលេងក្រុម", example: "We want a team player.", partOfSpeech: "noun", level: Level.INTERMEDIATE },
+  { word: "competitive", meaning: "wanting to win or do better than others", meaningKh: "ប្រកួតប្រជែង", example: "Sales roles can be competitive.", partOfSpeech: "adjective", level: Level.INTERMEDIATE },
+];
