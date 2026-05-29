@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import SpellcheckOutlinedIcon from "@mui/icons-material/SpellcheckOutlined";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
-import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import ThemeToggle from "./ThemeToggle";
 import { brandIndigo, accentPurple } from "@/lib/theme";
@@ -50,17 +50,17 @@ const NAV: NavItem[] = [
     match: (p) => p === "/grammar" || p.startsWith("/grammar/"),
   },
   {
-    label: "AI Tutor",
-    href: "/tutor" as Route,
-    icon: <AutoAwesomeOutlinedIcon sx={{ fontSize: 20 }} />,
-    match: (p) => p === "/tutor" || p.startsWith("/tutor/"),
+    label: "Quiz",
+    href: "/quiz" as Route,
+    icon: <QuizOutlinedIcon sx={{ fontSize: 20 }} />,
+    match: (p) => p === "/quiz" || p.startsWith("/quiz/"),
   },
 ];
 
 function pageNameFromPath(p: string): string {
   if (p.startsWith("/vocabulary")) return "Vocabulary";
   if (p.startsWith("/grammar")) return "Grammar";
-  if (p.startsWith("/tutor")) return "AI Tutor";
+  if (p.startsWith("/quiz")) return "Quiz";
   if (p.startsWith("/reading")) return "Reading";
   if (p.startsWith("/listening")) return "Listening";
   if (p.startsWith("/speaking")) return "Speaking";

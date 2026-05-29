@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import PageLayout from "@/components/PageLayout";
 import GrammarListClient from "@/components/GrammarListClient";
+import { parseLessonNumber } from "@/lib/lessonHeadings";
 
 export const metadata = { title: "Grammar" };
 
@@ -29,10 +30,13 @@ export default async function GrammarPage() {
       const sections = (l.content.match(/^##\s/gm) ?? []).length;
       const wordCount = l.content.split(/\s+/).filter(Boolean).length;
       const minutes = Math.max(1, Math.round(wordCount / 200));
+      const { number, rest } = parseLessonNumber(l.title);
       return {
         id: l.id,
         slug: l.slug,
         title: l.title,
+        displayTitle: rest,
+        number,
         summary: l.summary,
         level: l.level,
         sections,

@@ -1,21 +1,22 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState } from "react";
 import type { Route } from "next";
 import Link from "next/link";
 import {
   alpha,
   Box,
+  InputAdornment,
   Stack,
+  TextField,
   Typography,
   useTheme,
 } from "@mui/material";
-import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import SegmentIcon from "@mui/icons-material/Segment";
-import { levelLabel } from "@/lib/utils";
-import { brandIndigo, accentPurple } from "@/lib/theme";
+import { parseLessonNumber } from "@/lib/lessonHeadings";
 
 type Lesson = {
   id: string;
@@ -27,475 +28,293 @@ type Lesson = {
   minutes: number;
 };
 
-type Filter = "all" | "BEGINNER" | "INTERMEDIATE" | "ADVANCED";
-
-const ACTIVE_PILL = "#7c5cff";
-const ACTIVE_PILL_HOVER = "#6d4eef";
-
-const FILTERS: { value: Filter; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "BEGINNER", label: "Beginner" },
-  { value: "INTERMEDIATE", label: "Intermediate" },
-  { value: "ADVANCED", label: "Advanced" },
-];
-
 const LEVEL_ORDER: Lesson["level"][] = [
   "BEGINNER",
   "INTERMEDIATE",
   "ADVANCED",
 ];
 
-function levelTint(level: Lesson["level"], isDark: boolean) {
-  switch (level) {
-    case "BEGINNER":
-      return {
-        text: isDark ? "#4ade80" : "#16a34a",
-        bg: isDark ? alpha("#4ade80", 0.12) : alpha("#16a34a", 0.1),
-      };
-    case "INTERMEDIATE":
-      return {
-        text: isDark ? "#60a5fa" : "#2563eb",
-        bg: isDark ? alpha("#60a5fa", 0.12) : alpha("#2563eb", 0.1),
-      };
-    case "ADVANCED":
-      return {
-        text: isDark ? "#fbbf24" : "#d97706",
-        bg: isDark ? alpha("#fbbf24", 0.12) : alpha("#d97706", 0.1),
-      };
-  }
-}
+const LEVEL_DOT: Record<Lesson["level"], string> = {
+  BEGINNER: "#22c55e",
+  INTERMEDIATE: "#3b82f6",
+  ADVANCED: "#f59e0b",
+};
+
+const LEVEL_DISPLAY: Record<Lesson["level"], string> = {
+  BEGINNER: "Beginner",
+  INTERMEDIATE: "Intermediate (B1)",
+  ADVANCED: "Advanced",
+};
 
 export default function GrammarListClient({ lessons }: { lessons: Lesson[] }) {
-  const [filter, setFilter] = useState<Filter>("all");
-
-  const counts = useMemo(() => {
-    const c: Record<Filter, number> = {
-      all: lessons.length,
-      BEGINNER: 0,
-      INTERMEDIATE: 0,
-      ADVANCED: 0,
-    };
-    for (const l of lessons) c[l.level]++;
-    return c;
-  }, [lessons]);
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState<Record<Lesson["level"], boolean>>({
+    BEGINNER: true,
+    INTERMEDIATE: true,
+    ADVANCED: true,
+  });
 
   const grouped = useMemo(() => {
+    const q = query.trim().toLowerCase();
     const g: Record<Lesson["level"], Lesson[]> = {
       BEGINNER: [],
       INTERMEDIATE: [],
       ADVANCED: [],
     };
-    for (const l of lessons) g[l.level].push(l);
+    for (const l of lessons) {
+      if (
+        q &&
+        !l.title.toLowerCase().includes(q) &&
+        !l.summary.toLowerCase().includes(q)
+      ) {
+        continue;
+      }
+      g[l.level].push(l);
+    }
     return g;
-  }, [lessons]);
+  }, [lessons, query]);
 
-  const showAll = filter === "all";
-  const flatVisible = showAll
-    ? []
-    : lessons.filter((l) => l.level === filter);
+  const totalVisible = LEVEL_ORDER.reduce(
+    (acc, lvl) => acc + grouped[lvl].length,
+    0,
+  );
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        flex: 1,
-        minHeight: 0,
-      }}
-    >
-      {/* Page header */}
-      <Stack
-        direction="row"
-        alignItems="center"
-        spacing={1.75}
-        sx={{ mb: 1, flexShrink: 0 }}
-      >
-        <Box
-          sx={{
-            width: 44,
-            height: 44,
-            borderRadius: 2,
-            background: `linear-gradient(135deg, ${brandIndigo} 0%, ${accentPurple} 100%)`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            flexShrink: 0,
-          }}
-        >
-          <MenuBookOutlinedIcon sx={{ fontSize: 22 }} />
-        </Box>
+    <Box sx={{ maxWidth: 820, mx: "auto", width: "100%" }}>
+      {/* Quiet, Notion-doc style header */}
+      <Box sx={{ mb: 4 }}>
         <Typography
-          variant="h4"
           component="h1"
           sx={{
             fontWeight: 800,
-            letterSpacing: "-0.02em",
-            fontSize: { xs: "1.5rem", md: "1.75rem" },
+            letterSpacing: "-0.025em",
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            lineHeight: 1.1,
+            mb: 1,
           }}
         >
           Grammar
         </Typography>
-      </Stack>
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        sx={{ mb: 2.5, fontSize: "0.875rem", ml: 7.5 }}
-      >
-        Short, focused lessons grouped by level.
-      </Typography>
-
-      {/* Filter pills */}
-      <Stack
-        direction="row"
-        spacing={1}
-        flexWrap="wrap"
-        useFlexGap
-        sx={{ mb: 3, flexShrink: 0 }}
-      >
-        {FILTERS.map((f) => (
-          <FilterPill
-            key={f.value}
-            active={filter === f.value}
-            onClick={() => setFilter(f.value)}
-          >
-            <span>{f.label}</span>
-            <PillCount active={filter === f.value}>{counts[f.value]}</PillCount>
-          </FilterPill>
-        ))}
-      </Stack>
-
-      {showAll ? (
-        <Stack spacing={4}>
-          {LEVEL_ORDER.map((lvl) =>
-            grouped[lvl].length === 0 ? null : (
-              <LevelSection
-                key={lvl}
-                level={lvl}
-                count={grouped[lvl].length}
-                lessons={grouped[lvl]}
-              />
-            ),
-          )}
-        </Stack>
-      ) : (
-        <CardGrid lessons={flatVisible} />
-      )}
-    </Box>
-  );
-}
-
-function LevelSection({
-  level,
-  count,
-  lessons,
-}: {
-  level: Lesson["level"];
-  count: number;
-  lessons: Lesson[];
-}) {
-  const theme = useTheme();
-  const tint = levelTint(level, theme.palette.mode === "dark");
-  return (
-    <Box>
-      <Stack
-        direction="row"
-        alignItems="center"
-        spacing={1.25}
-        sx={{ mb: 1.75 }}
-      >
-        <Box
-          sx={{
-            width: 8,
-            height: 8,
-            borderRadius: "50%",
-            bgcolor: tint.text,
-          }}
-        />
         <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: "0.9375rem",
-            letterSpacing: "-0.01em",
-          }}
+          color="text.secondary"
+          sx={{ fontSize: "1rem", lineHeight: 1.6, maxWidth: 560 }}
         >
-          {levelLabel(level)}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "0.8125rem",
-            color: "text.disabled",
-            fontWeight: 600,
-          }}
-        >
-          · {count} {count === 1 ? "lesson" : "lessons"}
-        </Typography>
-      </Stack>
-      <CardGrid lessons={lessons} />
-    </Box>
-  );
-}
-
-function CardGrid({ lessons }: { lessons: Lesson[] }) {
-  if (lessons.length === 0) {
-    return (
-      <Box
-        sx={{
-          py: 6,
-          px: 3,
-          textAlign: "center",
-          bgcolor: "background.paper",
-          borderRadius: 2.5,
-          border: 1,
-          borderColor: "divider",
-        }}
-      >
-        <Typography color="text.secondary">
-          No lessons at this level yet.
+          Short, focused lessons grouped by level. Click a heading to collapse.
         </Typography>
       </Box>
-    );
-  }
-  return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          xs: "1fr",
-          sm: "1fr 1fr",
-          lg: "repeat(3, 1fr)",
-        },
-        gap: 2,
-        alignItems: "stretch",
-      }}
-    >
-      {lessons.map((lesson) => (
-        <GrammarCard key={lesson.id} lesson={lesson} />
-      ))}
+
+      {/* Search */}
+      <Box sx={{ mb: 3 }}>
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Search lessons…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon sx={{ fontSize: 18, color: "text.disabled" }} />
+              </InputAdornment>
+            ),
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              fontSize: "0.9375rem",
+              borderRadius: 2,
+              bgcolor: (t) =>
+                t.palette.mode === "dark"
+                  ? alpha("#fff", 0.03)
+                  : alpha("#0f172a", 0.025),
+            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "divider",
+            },
+          }}
+        />
+      </Box>
+
+      {totalVisible === 0 && query.trim() !== "" && (
+        <Typography
+          color="text.secondary"
+          sx={{ py: 4, textAlign: "center", fontSize: "0.9375rem" }}
+        >
+          No lessons match &ldquo;{query}&rdquo;.
+        </Typography>
+      )}
+
+      {/* Collapsible groups */}
+      <Stack spacing={2.5}>
+        {LEVEL_ORDER.map((lvl) => {
+          const items = grouped[lvl];
+          if (items.length === 0) return null;
+          const isOpen = open[lvl];
+          return (
+            <Box key={lvl}>
+              <Box
+                component="button"
+                type="button"
+                onClick={() => setOpen((o) => ({ ...o, [lvl]: !o[lvl] }))}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.75,
+                  width: "100%",
+                  border: 0,
+                  bgcolor: "transparent",
+                  cursor: "pointer",
+                  px: 0,
+                  py: 1.25,
+                  textAlign: "left",
+                  color: "text.primary",
+                  fontFamily: "inherit",
+                  borderBottom: 1,
+                  borderColor: "divider",
+                }}
+              >
+                {isOpen ? (
+                  <KeyboardArrowDownIcon
+                    sx={{ fontSize: 18, color: "text.disabled" }}
+                  />
+                ) : (
+                  <KeyboardArrowRightIcon
+                    sx={{ fontSize: 18, color: "text.disabled" }}
+                  />
+                )}
+                <Box
+                  sx={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    bgcolor: LEVEL_DOT[lvl],
+                    flexShrink: 0,
+                  }}
+                />
+                <Typography
+                  component="span"
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: "0.9375rem",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {LEVEL_DISPLAY[lvl]}
+                </Typography>
+                <Typography
+                  component="span"
+                  sx={{
+                    ml: 0.5,
+                    fontSize: "0.8125rem",
+                    color: "text.disabled",
+                    fontWeight: 500,
+                  }}
+                >
+                  ({items.length})
+                </Typography>
+              </Box>
+
+              {isOpen && (
+                <Box sx={{ pt: 0.75 }}>
+                  {items.map((l) => (
+                    <LessonRow key={l.id} lesson={l} />
+                  ))}
+                </Box>
+              )}
+            </Box>
+          );
+        })}
+      </Stack>
     </Box>
   );
 }
 
-function GrammarCard({ lesson }: { lesson: Lesson }) {
+function LessonRow({ lesson }: { lesson: Lesson }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
-  const tint = levelTint(lesson.level, isDark);
+  const { number, rest } = parseLessonNumber(lesson.title);
+  const displayTitle = rest || lesson.title;
 
   return (
     <Box
       component={Link}
       href={`/grammar/${lesson.slug}` as Route}
       sx={{
-        position: "relative",
         display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        bgcolor: "background.paper",
-        borderRadius: 3,
-        border: 1,
-        borderColor: "divider",
+        alignItems: "center",
+        gap: 1.5,
+        py: 1.125,
+        px: 1.25,
+        mx: -1.25,
+        borderRadius: 1.5,
         textDecoration: "none",
         color: "inherit",
-        p: 2.5,
-        overflow: "hidden",
-        transition:
-          "border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          left: 0,
-          top: 0,
-          bottom: 0,
-          width: 3,
-          background: `linear-gradient(180deg, ${brandIndigo}, ${accentPurple})`,
-          opacity: 0,
-          transition: "opacity 0.2s ease",
-        },
+        cursor: "pointer",
+        transition: "background-color 0.12s",
         "&:hover": {
-          borderColor: alpha(brandIndigo, isDark ? 0.4 : 0.28),
-          boxShadow: isDark ? "none" : `0 6px 22px ${alpha("#0f172a", 0.06)}`,
-          transform: "translateY(-1px)",
-          "&::before": { opacity: 1 },
-          "& .grammar-arrow": {
-            opacity: 1,
-            transform: "translateX(2px)",
-          },
+          bgcolor: isDark ? alpha("#fff", 0.04) : alpha("#0f172a", 0.035),
+          "& .lesson-title": { color: "primary.main" },
         },
       }}
     >
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ mb: 1.5 }}
-      >
-        <Box
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.5,
-            px: 1.25,
-            py: 0.375,
-            borderRadius: 999,
-            bgcolor: tint.bg,
-            color: tint.text,
-            fontSize: "0.6875rem",
-            fontWeight: 700,
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
-          }}
-        >
-          {levelLabel(lesson.level)}
-        </Box>
-        <ArrowForwardIcon
-          className="grammar-arrow"
-          sx={{
-            fontSize: 18,
-            color: brandIndigo,
-            opacity: 0.4,
-            transform: "translateX(0)",
-            transition: "opacity 0.2s, transform 0.2s",
-          }}
-        />
-      </Stack>
-
-      <Typography
+      <Box
         sx={{
-          fontWeight: 700,
-          fontSize: "1.0625rem",
-          lineHeight: 1.3,
-          color: "text.primary",
-          letterSpacing: "-0.01em",
-          mb: 0.75,
-        }}
-      >
-        {lesson.title}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        sx={{
-          display: "-webkit-box",
-          WebkitLineClamp: 2,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
-          lineHeight: 1.55,
-          fontSize: "0.8125rem",
-          mb: 2,
-        }}
-      >
-        {lesson.summary}
-      </Typography>
-
-      <Stack
-        direction="row"
-        alignItems="center"
-        spacing={1.5}
-        sx={{
-          mt: "auto",
-          pt: 1.5,
-          borderTop: 1,
-          borderColor: "divider",
-          color: "text.disabled",
+          flexShrink: 0,
+          minWidth: 28,
           fontSize: "0.75rem",
           fontWeight: 600,
+          color: "text.disabled",
+          fontVariantNumeric: "tabular-nums",
+          letterSpacing: "0.02em",
         }}
       >
-        <Stack direction="row" alignItems="center" spacing={0.5}>
-          <SegmentIcon sx={{ fontSize: 14 }} />
-          <span>
-            {lesson.sections} {lesson.sections === 1 ? "section" : "sections"}
-          </span>
-        </Stack>
-        <Box
+        {number ?? "·"}
+      </Box>
+      <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Typography
+          className="lesson-title"
           sx={{
-            width: 3,
-            height: 3,
-            borderRadius: "50%",
-            bgcolor: "text.disabled",
+            fontSize: "0.9375rem",
+            fontWeight: 600,
+            letterSpacing: "-0.005em",
+            transition: "color 0.12s",
+            lineHeight: 1.45,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
           }}
-        />
-        <Stack direction="row" alignItems="center" spacing={0.5}>
-          <AccessTimeIcon sx={{ fontSize: 14 }} />
-          <span>{lesson.minutes} min read</span>
-        </Stack>
+        >
+          {displayTitle}
+        </Typography>
+        <Typography
+          sx={{
+            mt: 0.25,
+            fontSize: "0.8125rem",
+            color: "text.secondary",
+            lineHeight: 1.45,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            display: { xs: "none", sm: "block" },
+          }}
+        >
+          {lesson.summary}
+        </Typography>
+      </Box>
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={0.5}
+        sx={{
+          flexShrink: 0,
+          color: "text.disabled",
+          fontSize: "0.75rem",
+          fontWeight: 500,
+          display: { xs: "none", md: "flex" },
+        }}
+      >
+        <AccessTimeIcon sx={{ fontSize: 12 }} />
+        <span>{lesson.minutes} min</span>
       </Stack>
-    </Box>
-  );
-}
-
-function FilterPill({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: ReactNode;
-}) {
-  const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
-  return (
-    <Box
-      component="button"
-      type="button"
-      onClick={onClick}
-      sx={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 0.75,
-        px: 2,
-        py: 0.875,
-        borderRadius: 999,
-        fontSize: "0.875rem",
-        fontWeight: 600,
-        cursor: "pointer",
-        border: 0,
-        fontFamily: "inherit",
-        transition: "background-color 0.15s, color 0.15s",
-        whiteSpace: "nowrap",
-        ...(active
-          ? {
-              bgcolor: ACTIVE_PILL,
-              color: "#fff",
-              boxShadow: `0 8px 18px -8px ${alpha(ACTIVE_PILL, 0.65)}`,
-              "&:hover": { bgcolor: ACTIVE_PILL_HOVER },
-            }
-          : {
-              bgcolor: isDark ? alpha("#fff", 0.04) : alpha("#0f172a", 0.04),
-              color: "text.secondary",
-              "&:hover": {
-                bgcolor: isDark
-                  ? alpha("#fff", 0.08)
-                  : alpha("#0f172a", 0.07),
-                color: "text.primary",
-              },
-            }),
-      }}
-    >
-      {children}
-    </Box>
-  );
-}
-
-function PillCount({
-  active,
-  children,
-}: {
-  active: boolean;
-  children: ReactNode;
-}) {
-  return (
-    <Box
-      component="span"
-      sx={{
-        fontSize: "0.8125rem",
-        fontWeight: 700,
-        color: active ? "rgba(255, 255, 255, 0.85)" : "text.disabled",
-      }}
-    >
-      {children}
     </Box>
   );
 }

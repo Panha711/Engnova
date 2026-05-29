@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 import type { Level } from "@prisma/client";
 import type { Route } from "next";
 import Link from "next/link";
@@ -19,9 +25,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import VolumeUpOutlinedIcon from "@mui/icons-material/VolumeUpOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import Flashcard, { type FlashcardItem } from "./Flashcard";
-import QuizRunner, { type QuizQuestion } from "./QuizRunner";
 import SaveWordButton from "./SaveWordButton";
 import AddWordDialog from "./AddWordDialog";
 import { VOCABULARY_LEVELS } from "@/lib/utils";
@@ -29,14 +35,7 @@ import { brandIndigo, accentPurple } from "@/lib/theme";
 
 type Word = FlashcardItem & { example?: string | null };
 
-type Quiz = {
-  id: string;
-  title: string;
-  description?: string | null;
-  questions: QuizQuestion[];
-};
-
-type Mode = "words" | "flashcards" | "quiz" | "saved";
+type Mode = "words" | "flashcards" | "saved";
 
 type Props = {
   level: Level;
@@ -44,7 +43,6 @@ type Props = {
   words: Word[];
   savedWords: Word[];
   savedIds: string[];
-  quizzesByLevel: Partial<Record<Level, Quiz>>;
 };
 
 const ACTIVE_PILL = "#7c5cff";
@@ -59,32 +57,40 @@ export default function VocabularyClient({
   words,
   savedWords,
   savedIds,
-  quizzesByLevel,
 }: Props) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const primary = theme.palette.primary.main;
   const [mode, setMode] = useState<Mode>("words");
-  const [quizLevel, setQuizLevel] = useState<Level>(level);
   const [search, setSearch] = useState("");
+  const deferredSearch = useDeferredValue(search);
+  const [visibleCount, setVisibleCount] = useState(120);
   const [addOpen, setAddOpen] = useState(false);
-  const quiz = quizzesByLevel[quizLevel] ?? null;
 
   const sourceWords = mode === "saved" ? savedWords : words;
 
   const filtered = useMemo(() => {
-    if (!search.trim()) return sourceWords;
-    const q = search.toLowerCase();
+    if (!deferredSearch.trim()) return sourceWords;
+    const q = deferredSearch.toLowerCase();
     return sourceWords.filter(
       (w) =>
         w.word.toLowerCase().includes(q) ||
         w.meaning.toLowerCase().includes(q) ||
         (w.meaningKh?.toLowerCase().includes(q) ?? false),
     );
-  }, [sourceWords, search]);
+  }, [sourceWords, deferredSearch]);
+
+  // Reset visible count when the source or filter changes.
+  useEffect(() => {
+    setVisibleCount(120);
+  }, [mode, deferredSearch, level]);
 
   const savedSet = new Set(savedIds);
-  const listWords = filtered;
+  const listWords = useMemo(
+    () => filtered.slice(0, visibleCount),
+    [filtered, visibleCount],
+  );
+  const hasMore = filtered.length > visibleCount;
   const showSearch = mode === "words" || mode === "saved";
 
   return (
@@ -168,12 +174,6 @@ export default function VocabularyClient({
             onClick={() => setMode("flashcards")}
           >
             <span>Cards</span>
-          </FilterPillButton>
-          <FilterPillButton
-            active={mode === "quiz"}
-            onClick={() => setMode("quiz")}
-          >
-            <span>Quiz</span>
           </FilterPillButton>
         </Stack>
 
@@ -272,7 +272,7 @@ export default function VocabularyClient({
       />
 
       {/* Content */}
-      <Box className="vocabulary-scroll" sx={{ flex: 1, minHeight: 0 }}>
+      <Box className="vocabulary-scroll" sx={{ flex: 1, minHeight: 0, mr: -1, pr: 1 }}>
         {(mode === "words" || mode === "saved") &&
           (listWords.length === 0 ? (
             <EmptyState
@@ -285,61 +285,51 @@ export default function VocabularyClient({
               }
             />
           ) : (
-            <VocabularyWordGrid listWords={listWords} savedSet={savedSet} />
+            <>
+              <VocabularyWordGrid listWords={listWords} savedSet={savedSet} />
+              {hasMore && (
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  sx={{ mt: 2, mb: 1 }}
+                >
+                  <Box
+                    component="button"
+                    type="button"
+                    onClick={() => setVisibleCount((c) => c + 120)}
+                    sx={{
+                      px: 2.5,
+                      py: 1,
+                      borderRadius: 999,
+                      border: 0,
+                      cursor: "pointer",
+                      fontFamily: "inherit",
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                      color: "text.secondary",
+                      bgcolor: isDark
+                        ? alpha("#fff", 0.04)
+                        : alpha("#0f172a", 0.04),
+                      transition: "background-color 0.15s",
+                      "&:hover": {
+                        bgcolor: isDark
+                          ? alpha("#fff", 0.08)
+                          : alpha("#0f172a", 0.07),
+                        color: "text.primary",
+                      },
+                    }}
+                  >
+                    Show more ({filtered.length - visibleCount} remaining)
+                  </Box>
+                </Stack>
+              )}
+            </>
           ))}
 
         {mode === "flashcards" && (
           <Panel>
             <Flashcard items={filtered.length ? filtered : words} />
           </Panel>
-        )}
-
-        {mode === "quiz" && (
-          <Stack spacing={2}>
-            <Stack
-              direction="row"
-              spacing={1}
-              flexWrap="wrap"
-              useFlexGap
-              alignItems="center"
-            >
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 600,
-                  color: "text.secondary",
-                  mr: 0.5,
-                }}
-              >
-                Choose level:
-              </Typography>
-              {VOCABULARY_LEVELS.map((lvl) => (
-                <FilterPillButton
-                  key={lvl.slug}
-                  active={quizLevel === lvl.level}
-                  onClick={() => setQuizLevel(lvl.level)}
-                >
-                  <span>{lvl.label}</span>
-                </FilterPillButton>
-              ))}
-            </Stack>
-            <Panel>
-              {quiz ? (
-                <QuizRunner
-                  key={quiz.id}
-                  quizId={quiz.id}
-                  title={quiz.title}
-                  description={quiz.description}
-                  questions={quiz.questions}
-                />
-              ) : (
-                <Typography color="text.secondary" textAlign="center" py={4}>
-                  No quiz for this level yet.
-                </Typography>
-              )}
-            </Panel>
-          </Stack>
         )}
       </Box>
     </Box>
@@ -353,7 +343,7 @@ function pillStyles(active: boolean, isDark: boolean) {
     gap: 0.75,
     px: 2,
     py: 0.875,
-    borderRadius: 50,
+    borderRadius: 5,
     fontSize: "0.875rem",
     fontWeight: 600,
     cursor: "pointer",
@@ -562,28 +552,33 @@ function WordCard({
 }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
-  const coral = isDark ? "#fca5a5" : "#dc2626";
-  const meaningColor = isDark ? "#cbd5e1" : "#475569";
-  const badgeBg = isDark ? alpha("#fff", 0.07) : alpha("#0f172a", 0.05);
-  const badgeText = isDark ? "#cbd5e1" : "#475569";
+  const khmerColor = isDark ? "#fca5a5" : "#e11d48";
+  const meaningColor = isDark ? "#60a5fa" : "#2563eb";
+  const badgeBg = isDark ? alpha("#fff", 0.06) : alpha("#0f172a", 0.05);
+  const badgeText = isDark ? "#cbd5e1" : "#64748b";
+  const pos = posPalette(word.partOfSpeech, isDark);
 
   return (
     <Box
       sx={{
+        position: "relative",
         width: "100%",
         height: "100%",
         bgcolor: "background.paper",
         borderRadius: 1,
         border: 1,
         borderColor: "divider",
+        overflow: "hidden",
         px: 2.5,
         py: 2,
         transition:
           "border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
         "&:hover": {
-          borderColor: alpha(brandIndigo, isDark ? 0.4 : 0.28),
-          boxShadow: isDark ? "none" : `0 6px 22px ${alpha("#0f172a", 0.06)}`,
-          transform: "translateY(-1px)",
+          borderColor: alpha(pos.accent, isDark ? 0.5 : 0.35),
+          boxShadow: isDark
+            ? `0 0 0 1px ${alpha(pos.accent, 0.15)}`
+            : `0 8px 24px ${alpha(pos.accent, 0.12)}`,
+          transform: "translateY(-2px)",
         },
       }}
     >
@@ -592,7 +587,7 @@ function WordCard({
           sx={{
             width: 28,
             height: 28,
-            borderRadius: 1,
+            borderRadius: 1.25,
             bgcolor: badgeBg,
             color: badgeText,
             display: "flex",
@@ -613,9 +608,9 @@ function WordCard({
             component="p"
             sx={{
               m: 0,
-              fontWeight: 700,
-              fontSize: "1.25rem",
-              lineHeight: 1.2,
+              fontWeight: 800,
+              fontSize: "1.3rem",
+              lineHeight: 1.15,
               color: "text.primary",
               letterSpacing: "-0.02em",
               wordBreak: "break-word",
@@ -631,13 +626,13 @@ function WordCard({
               component="p"
               className="vocabulary-kh"
               sx={{
-                mt: 0.75,
+                mt: 1,
                 mb: 0,
                 fontFamily: khmerFont,
-                fontSize: "1rem",
-                fontWeight: 500,
+                fontSize: "1.0625rem",
+                fontWeight: 600,
                 lineHeight: 1.6,
-                color: coral,
+                color: khmerColor,
                 wordBreak: "break-word",
               }}
             >
@@ -651,10 +646,12 @@ function WordCard({
               sx={{
                 mt: 1,
                 mb: 0,
-                fontSize: "0.875rem",
+                fontSize: "1rem",
+                fontWeight: 500,
                 lineHeight: 1.6,
                 color: meaningColor,
                 wordBreak: "break-word",
+                letterSpacing: "-0.005em",
               }}
             >
               {word.meaning}
@@ -674,10 +671,39 @@ function WordCard({
             initialSaved={saved}
             variant="heart"
           />
+          <EditWordButton word={word} />
         </Stack>
       </Stack>
     </Box>
   );
+}
+
+/** Returns an accent + chip color for each part of speech. */
+function posPalette(
+  partOfSpeech: string | null | undefined,
+  isDark: boolean,
+): { accent: string; bg: string; text: string } {
+  const fallback = { hex: "#64748b" }; // slate
+  const map: Record<string, { hex: string }> = {
+    noun: { hex: "#3b82f6" }, // blue
+    verb: { hex: "#10b981" }, // emerald
+    adjective: { hex: "#a855f7" }, // purple
+    adverb: { hex: "#f59e0b" }, // amber
+    preposition: { hex: "#06b6d4" }, // cyan
+    pronoun: { hex: "#8b5cf6" }, // violet
+    conjunction: { hex: "#6366f1" }, // indigo
+    determiner: { hex: "#0ea5e9" }, // sky
+    interjection: { hex: "#ef4444" }, // red
+    phrase: { hex: "#ec4899" }, // pink
+    number: { hex: "#14b8a6" }, // teal
+  };
+  const key = partOfSpeech?.trim().toLowerCase() ?? "";
+  const c = map[key] ?? fallback;
+  return {
+    accent: c.hex,
+    bg: alpha(c.hex, isDark ? 0.18 : 0.12),
+    text: isDark ? alpha(c.hex, 0.95) : c.hex,
+  };
 }
 
 function SpeakButton({ text }: { text: string }) {
@@ -708,5 +734,43 @@ function SpeakButton({ text }: { text: string }) {
         <VolumeUpOutlinedIcon sx={{ fontSize: 20 }} />
       </IconButton>
     </Tooltip>
+  );
+}
+
+function EditWordButton({ word }: { word: Word }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Tooltip title="Edit word">
+        <IconButton
+          onClick={() => setOpen(true)}
+          size="small"
+          aria-label={`Edit ${word.word}`}
+          sx={{
+            color: "text.disabled",
+            p: 0.5,
+            "&:hover": {
+              color: "primary.main",
+              bgcolor: (t) => alpha(t.palette.primary.main, 0.08),
+            },
+          }}
+        >
+          <EditOutlinedIcon sx={{ fontSize: 18 }} />
+        </IconButton>
+      </Tooltip>
+      <AddWordDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        defaultLevel={word.level as Level}
+        editing={{
+          id: word.id,
+          word: word.word,
+          meaning: word.meaning,
+          meaningKh: word.meaningKh ?? "",
+          example: word.example ?? "",
+          partOfSpeech: word.partOfSpeech ?? "noun",
+        }}
+      />
+    </>
   );
 }

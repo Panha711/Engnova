@@ -69,15 +69,14 @@ a {
   background: rgba(99, 102, 241, 0.22);
 }
 
-/* Vocabulary word list — scroll only the grid area */
+/* Vocabulary / Quiz inner content scroll — scrollbar only on the cards area */
 .vocabulary-scroll {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  scrollbar-gutter: stable;
   scrollbar-width: thin;
-  scrollbar-color: var(--vocab-scroll-thumb) var(--vocab-scroll-track);
+  scrollbar-color: var(--vocab-scroll-thumb) transparent;
 }
 
 .vocabulary-scroll::-webkit-scrollbar {
@@ -85,8 +84,7 @@ a {
 }
 
 .vocabulary-scroll::-webkit-scrollbar-track {
-  background: var(--vocab-scroll-track);
-  border-radius: 999px;
+  background: transparent;
 }
 
 .vocabulary-scroll::-webkit-scrollbar-thumb {

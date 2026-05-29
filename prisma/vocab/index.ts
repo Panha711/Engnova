@@ -46,6 +46,10 @@ import { toolsVocab } from "./tools";
 import { numbersCardinalVocab } from "./numbers-cardinal";
 import { numbersOrdinalVocab } from "./numbers-ordinal";
 import { apartmentBuildingVocab } from "./apartment-building";
+import { commonWords1000Vocab } from "./common-words-1000";
+import { intermediateB1Vocab } from "./intermediate-b1";
+import { intermediateB1ExtraVocab } from "./intermediate-b1-extra";
+import { advancedC1Vocab } from "./advanced-c1";
 
 export const extraVocab = [
   ...babyRoomVocab,
@@ -98,4 +102,8 @@ export const extraVocab = [
   ...numbersCardinalVocab,
   ...numbersOrdinalVocab,
   ...apartmentBuildingVocab,
+  ...commonWords1000Vocab,
+  ...intermediateB1Vocab,
+  ...intermediateB1ExtraVocab,
+  ...advancedC1Vocab,
 ];

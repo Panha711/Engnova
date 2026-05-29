@@ -2,6 +2,8 @@ import { PrismaClient, Level, LessonType, Skill } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { extraVocab } from "./vocab";
 import { grammarLessons } from "./grammar/lessons";
+import { beginnerGrammar50 } from "./grammar/beginner-50";
+import { intermediateB1Grammar } from "./grammar/intermediate-b1";
 
 const prisma = new PrismaClient();
 
@@ -708,7 +710,7 @@ Use the **present continuous** for actions happening right now or around now.
     },
   });
 
-  for (const lesson of grammarLessons) {
+  for (const lesson of [...grammarLessons, ...beginnerGrammar50, ...intermediateB1Grammar]) {
     await prisma.lesson.upsert({
       where: { slug: lesson.slug },
       update: {

@@ -50,6 +50,43 @@ export async function createWord(
   return { ok: true, id: created.id };
 }
 
+type UpdateWordInput = CreateWordInput & { id: string };
+
+export async function updateWord(
+  input: UpdateWordInput,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  await requireUserId();
+
+  const word = input.word.trim();
+  const meaning = input.meaning.trim();
+  if (!word) return { ok: false, error: "Word is required." };
+  if (!meaning) return { ok: false, error: "English meaning is required." };
+
+  // If the word string changed, make sure the new one isn't a duplicate.
+  const duplicate = await prisma.vocabulary.findFirst({
+    where: { word, NOT: { id: input.id } },
+    select: { id: true },
+  });
+  if (duplicate) {
+    return { ok: false, error: `"${word}" is already in the vocabulary.` };
+  }
+
+  await prisma.vocabulary.update({
+    where: { id: input.id },
+    data: {
+      word,
+      meaning,
+      meaningKh: input.meaningKh?.trim() || null,
+      example: input.example?.trim() || null,
+      partOfSpeech: input.partOfSpeech?.trim() || null,
+      level: input.level,
+    },
+  });
+
+  revalidatePath("/vocabulary", "layout");
+  return { ok: true };
+}
+
 type Generated = {
   meaning: string;
   meaningKh: string;

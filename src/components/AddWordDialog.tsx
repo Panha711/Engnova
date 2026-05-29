@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import type { Level } from "@prisma/client";
 import {
   alpha,
@@ -16,13 +17,23 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
-import { createWord, generateWordDetails } from "@/actions/vocabulary";
+import { createWord, generateWordDetails, updateWord } from "@/actions/vocabulary";
 import { brandIndigo, accentPurple } from "@/lib/theme";
+
+type EditingWord = {
+  id: string;
+  word: string;
+  meaning: string;
+  meaningKh: string;
+  example: string;
+  partOfSpeech: string;
+};
 
 type Props = {
   open: boolean;
   onClose: () => void;
   defaultLevel: Level;
+  editing?: EditingWord;
 };
 
 const POS_OPTIONS = [
@@ -41,15 +52,24 @@ const LEVELS: { value: Level; label: string }[] = [
   { value: "ADVANCED", label: "Advanced" },
 ];
 
-export default function AddWordDialog({ open, onClose, defaultLevel }: Props) {
+export default function AddWordDialog({
+  open,
+  onClose,
+  defaultLevel,
+  editing,
+}: Props) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const router = useRouter();
+  const isEditing = !!editing;
 
-  const [word, setWord] = useState("");
-  const [meaning, setMeaning] = useState("");
-  const [meaningKh, setMeaningKh] = useState("");
-  const [example, setExample] = useState("");
-  const [partOfSpeech, setPartOfSpeech] = useState("noun");
+  const [word, setWord] = useState(editing?.word ?? "");
+  const [meaning, setMeaning] = useState(editing?.meaning ?? "");
+  const [meaningKh, setMeaningKh] = useState(editing?.meaningKh ?? "");
+  const [example, setExample] = useState(editing?.example ?? "");
+  const [partOfSpeech, setPartOfSpeech] = useState(
+    editing?.partOfSpeech || "noun",
+  );
   const [level, setLevel] = useState<Level>(defaultLevel);
 
   const [generating, setGenerating] = useState(false);
@@ -57,11 +77,19 @@ export default function AddWordDialog({ open, onClose, defaultLevel }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   function reset() {
-    setWord("");
-    setMeaning("");
-    setMeaningKh("");
-    setExample("");
-    setPartOfSpeech("noun");
+    if (editing) {
+      setWord(editing.word);
+      setMeaning(editing.meaning);
+      setMeaningKh(editing.meaningKh);
+      setExample(editing.example);
+      setPartOfSpeech(editing.partOfSpeech || "noun");
+    } else {
+      setWord("");
+      setMeaning("");
+      setMeaningKh("");
+      setExample("");
+      setPartOfSpeech("noun");
+    }
     setLevel(defaultLevel);
     setError(null);
   }
@@ -98,20 +126,36 @@ export default function AddWordDialog({ open, onClose, defaultLevel }: Props) {
     if (!meaning.trim()) return setError("English meaning is required.");
 
     startSaving(async () => {
-      const res = await createWord({
-        word,
-        meaning,
-        meaningKh,
-        example,
-        partOfSpeech,
-        level,
-      });
-      if (!res.ok) {
-        setError(res.error);
-        return;
+      try {
+        const res = editing
+          ? await updateWord({
+              id: editing.id,
+              word,
+              meaning,
+              meaningKh,
+              example,
+              partOfSpeech,
+              level,
+            })
+          : await createWord({
+              word,
+              meaning,
+              meaningKh,
+              example,
+              partOfSpeech,
+              level,
+            });
+        if (!res.ok) {
+          setError(res.error);
+          return;
+        }
+        reset();
+        onClose();
+        // Force the server component to re-fetch so the change appears.
+        router.refresh();
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Could not save the word.");
       }
-      reset();
-      onClose();
     });
   }
 
@@ -167,7 +211,7 @@ export default function AddWordDialog({ open, onClose, defaultLevel }: Props) {
                 letterSpacing: "-0.01em",
               }}
             >
-              Add new word
+              {isEditing ? "Edit word" : "Add new word"}
             </Typography>
           </Stack>
           <IconButton
@@ -392,7 +436,11 @@ export default function AddWordDialog({ open, onClose, defaultLevel }: Props) {
                   },
                 }}
               >
-                {saving ? "Saving…" : "Save word"}
+                {saving
+                  ? "Saving…"
+                  : isEditing
+                    ? "Save changes"
+                    : "Save word"}
               </Box>
             </Stack>
           </Stack>

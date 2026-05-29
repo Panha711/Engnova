@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { slugifyHeading } from "@/lib/lessonHeadings";
 
 // Tiny markdown subset: headings (## / ###), **bold**, *italic*,
 // paragraphs, lists, tables, and blockquotes (lines starting with "> ").
@@ -56,6 +57,7 @@ export default function LessonContent({ content }: { content: string }) {
   let list: string[] | null = null;
   let table: { header: string[]; rows: string[][] } | null = null;
   let quote: string[] | null = null;
+  const headingUses = new Map<string, number>();
 
   const flushList = () => {
     if (list && list.length) {
@@ -244,9 +246,14 @@ export default function LessonContent({ content }: { content: string }) {
     if (line.startsWith("## ")) {
       flushAll();
       const { num, rest } = splitNumberedHeading(line.slice(3));
+      const baseId = slugifyHeading(rest);
+      const seen = headingUses.get(baseId) ?? 0;
+      const headingId = seen === 0 ? baseId : `${baseId}-${seen}`;
+      headingUses.set(baseId, seen + 1);
       out.push(
         <Box
           key={i}
+          id={headingId}
           sx={{
             display: "flex",
             alignItems: "baseline",
@@ -256,7 +263,7 @@ export default function LessonContent({ content }: { content: string }) {
             pb: 1.25,
             borderBottom: 1,
             borderColor: "divider",
-            scrollMarginTop: 24,
+            scrollMarginTop: 96,
           }}
         >
           {num && (
