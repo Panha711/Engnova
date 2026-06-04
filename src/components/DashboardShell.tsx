@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,9 +8,11 @@ import {
   alpha,
   AppBar,
   Avatar,
+  BottomNavigation,
+  BottomNavigationAction,
   Box,
   Drawer,
-  IconButton,
+  Paper,
   Stack,
   Toolbar,
   Typography,
@@ -18,7 +20,6 @@ import {
 import SpellcheckOutlinedIcon from "@mui/icons-material/SpellcheckOutlined";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
-import MenuIcon from "@mui/icons-material/Menu";
 import ThemeToggle from "./ThemeToggle";
 import { brandIndigo, accentPurple } from "@/lib/theme";
 
@@ -108,7 +109,7 @@ function NavRow({
 }: {
   item: NavItem;
   active: boolean;
-  onNavigate: () => void;
+  onNavigate?: () => void;
 }) {
   return (
     <Stack
@@ -151,13 +152,12 @@ function NavRow({
 
 export default function DashboardShell({ user, children }: Props) {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
   const initial = (user.name ?? user.email ?? "?")
     .trim()
     .charAt(0)
     .toUpperCase();
-  const closeMobile = () => setMobileOpen(false);
   const pageName = pageNameFromPath(pathname);
+  const activeNavIndex = NAV.findIndex((item) => item.match(pathname));
 
   const drawerContent = (
     <Box
@@ -177,7 +177,6 @@ export default function DashboardShell({ user, children }: Props) {
           direction="row"
           alignItems="center"
           spacing={1.5}
-          onClick={closeMobile}
           sx={{ textDecoration: "none", color: "inherit" }}
         >
           <Logo />
@@ -211,7 +210,6 @@ export default function DashboardShell({ user, children }: Props) {
               key={item.href}
               item={item}
               active={item.match(pathname)}
-              onNavigate={closeMobile}
             />
           ))}
         </Stack>
@@ -284,14 +282,6 @@ export default function DashboardShell({ user, children }: Props) {
         }}
       >
         <Toolbar sx={{ gap: 1, minHeight: 56 }}>
-          <IconButton
-            edge="start"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-            sx={{ color: "#fff" }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Logo size={30} />
           <Typography
             component={Link}
@@ -308,31 +298,26 @@ export default function DashboardShell({ user, children }: Props) {
             Engnova
           </Typography>
           <ThemeToggle size="small" />
+          <Avatar
+            src={user.image ?? undefined}
+            sx={{
+              width: 32,
+              height: 32,
+              bgcolor: SIDEBAR_ACTIVE,
+              fontSize: "0.8rem",
+              fontWeight: 700,
+            }}
+          >
+            {initial}
+          </Avatar>
         </Toolbar>
       </AppBar>
 
-      {/* Sidebar */}
+      {/* Desktop sidebar */}
       <Box
         component="nav"
         sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}
       >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={() => setMobileOpen(false)}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiDrawer-paper": {
-              width: DRAWER_WIDTH,
-              boxSizing: "border-box",
-              bgcolor: SIDEBAR_BG,
-              borderRight: "none",
-            },
-          }}
-        >
-          {drawerContent}
-        </Drawer>
         <Drawer
           variant="permanent"
           open
@@ -357,6 +342,7 @@ export default function DashboardShell({ user, children }: Props) {
           flex: 1,
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
           pt: { xs: 7, md: 0 },
+          pb: { xs: "calc(64px + env(safe-area-inset-bottom))", md: 0 },
           minWidth: 0,
           minHeight: 0,
           height: "100dvh",
@@ -400,6 +386,57 @@ export default function DashboardShell({ user, children }: Props) {
           {children}
         </Box>
       </Box>
+
+      {/* Mobile bottom tab bar */}
+      <Paper
+        square
+        elevation={0}
+        sx={{
+          display: { xs: "block", md: "none" },
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: (theme) => theme.zIndex.appBar,
+          bgcolor: SIDEBAR_BG,
+          borderTop: `1px solid ${SIDEBAR_BORDER}`,
+          pb: "env(safe-area-inset-bottom)",
+        }}
+      >
+        <BottomNavigation
+          showLabels
+          value={activeNavIndex === -1 ? false : activeNavIndex}
+          sx={{
+            bgcolor: "transparent",
+            height: 64,
+            "& .MuiBottomNavigationAction-root": {
+              color: SIDEBAR_MUTED,
+              minWidth: 0,
+              px: 1,
+            },
+            "& .MuiBottomNavigationAction-root.Mui-selected": {
+              color: SIDEBAR_ACTIVE,
+            },
+            "& .MuiBottomNavigationAction-label": {
+              fontSize: "0.6875rem",
+              fontWeight: 600,
+            },
+            "& .MuiBottomNavigationAction-label.Mui-selected": {
+              fontSize: "0.6875rem",
+            },
+          }}
+        >
+          {NAV.map((item) => (
+            <BottomNavigationAction
+              key={item.href}
+              component={Link}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+            />
+          ))}
+        </BottomNavigation>
+      </Paper>
     </Box>
   );
 }

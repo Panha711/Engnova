@@ -102,17 +102,6 @@ export default function QuizClient({ level, initialQuiz }: Props) {
         alignItems="center"
         sx={{ mb: 2.5, flexShrink: 0 }}
       >
-        <Typography
-          variant="body2"
-          sx={{
-            fontSize: "0.8125rem",
-            fontWeight: 600,
-            color: "text.secondary",
-            mr: 0.5,
-          }}
-        >
-          Choose level:
-        </Typography>
         {VOCABULARY_LEVELS.map((lvl) => (
           <FilterPillButton
             key={lvl.slug}

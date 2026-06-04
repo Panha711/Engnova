@@ -212,8 +212,9 @@ export default function VocabularyClient({
                 },
               }}
               sx={{
-                width: { xs: "100%", md: 240 },
-                flexShrink: 0,
+                flex: { xs: 1, md: "none" },
+                width: { md: 240 },
+                minWidth: 0,
                 "& .MuiOutlinedInput-root": {
                   borderRadius: 10,
                   bgcolor: isDark
